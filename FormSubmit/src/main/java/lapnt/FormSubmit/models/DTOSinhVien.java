@@ -23,5 +23,4 @@ public class DTOSinhVien {
 	public DTOSinhVien() {
 		super();
 	}
-	
 }
