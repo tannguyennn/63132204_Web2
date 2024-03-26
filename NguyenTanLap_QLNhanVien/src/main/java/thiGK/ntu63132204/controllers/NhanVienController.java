@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+
+
 import thiGK.ntu63132204.models.NhanVien;
 
 
@@ -24,7 +24,12 @@ public class NhanVienController {
 	
 	@GetMapping("/danhsachNV")
 	public String listNhanVien(ModelMap mm) {
-	    mm.addAttribute("dsSV", dsNV);
+	    mm.addAttribute("dsNV", dsNV);
 	    return "nhanvien_getAll";
+	}
+	
+	@GetMapping("/themMoiNV")
+	public String listStudent(ModelMap mm) {
+	    return "themSV_form";
 	}
 }
