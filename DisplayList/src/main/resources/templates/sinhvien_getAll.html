@@ -2,20 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Danh sách sinh viên</title>
+<link rel="stylesheet" type="text/css" href="css/myStyle.css">
 </head>
 <body>
 	<h1>Student List</h1>
-	<table border="1">
+	
+	<table class="table-header">
 		<thead>
 			<tr>
-				<th>Mã số sinh viên </th>
-				<th>Họ và Tên </th>
+				<th class="col col-1">Mã số sinh viên </th>
+				<th class="col col-2">Họ và Tên </th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="sv : ${dsSV}">
-				<td th:text="${sv.maSoSV}" />
-				<td th:text="${sv.hoVaTen}" />
+			<tr class="table-row" th:each="sv : ${dsSV}">
+				<td class="col col-1" th:text="${sv.maSoSV}" />
+				<td class="col col-2" th:text="${sv.hoVaTen}" />
 			</tr>
 		</tbody>
 	</table>
