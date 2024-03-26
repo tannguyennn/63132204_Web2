@@ -1,0 +1,19 @@
+@charset "ISO-8859-1";
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.employee-table th,
+.employee-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.employee-table th {
+  background-color: #f2f2f2;
+}
+
+.employee-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
