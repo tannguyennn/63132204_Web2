@@ -8,11 +8,11 @@
 		<version>3.2.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>lapnt</groupId>
-	<artifactId>QuanLySinhVien</artifactId>
+	<groupId>thiGK.ntu63132204</groupId>
+	<artifactId>NguyenTanLap_QLNhanVien</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>QuanLySinhVien</name>
-	<description>QuanLySinhVien</description>
+	<name>NguyenTanLap_QLNhanVien</name>
+	<description>QuanLyNhanVien</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

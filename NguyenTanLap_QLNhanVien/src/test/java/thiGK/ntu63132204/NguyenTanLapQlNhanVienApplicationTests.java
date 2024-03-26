@@ -1,10 +1,10 @@
-package lapnt.QuanLySinhVien;
+package thiGK.ntu63132204;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class QuanLySinhVienApplicationTests {
+class NguyenTanLapQlNhanVienApplicationTests {
 
 	@Test
 	void contextLoads() {
