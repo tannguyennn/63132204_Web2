@@ -19,8 +19,13 @@ public class NhanVien {
 	private Date ngaySinh;
 	@Column(name="GioiTinh" )
 	private String gioiTinh;
-	@Column(name="DiaChiKH" )
-	private String diaChi;
+	@Column(name="EmailNV" )
+	private String emailNV;
+	@Column(name="SDTNV" )
+	private String sdtNV;
+	@Column(name="DiaChiNV" )
+	private String diaChiNV;
+	
 	public String getMaNV() {
 		return maNV;
 	}
@@ -45,13 +50,23 @@ public class NhanVien {
 	public void setGioiTinh(String gioiTinh) {
 		this.gioiTinh = gioiTinh;
 	}
-	public String getDiaChi() {
-		return diaChi;
+	public String getEmailNV() {
+		return emailNV;
 	}
-	public void setDiaChi(String diaChi) {
-		this.diaChi = diaChi;
+	public void setEmailNV(String emailNV) {
+		this.emailNV = emailNV;
+	}
+	public String getSdtNV() {
+		return sdtNV;
+	}
+	public void setSdtNV(String sdtNV) {
+		this.sdtNV = sdtNV;
+	}
+	public String getDiaChiNV() {
+		return diaChiNV;
+	}
+	public void setDiaChiNV(String diaChiNV) {
+		this.diaChiNV = diaChiNV;
 	}
 	
-	
-
 }

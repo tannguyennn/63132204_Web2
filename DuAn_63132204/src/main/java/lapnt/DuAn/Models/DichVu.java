@@ -16,7 +16,7 @@ public class DichVu {
 	@Column(name = "MoTa")    
 	private String moTa;  
 	@Column(name="Gia" )
-	private double Gia;
+	private double gia;
 	
 	public String getMaDV() {
 		return maDV;
@@ -37,10 +37,10 @@ public class DichVu {
 		this.moTa = moTa;
 	}
 	public double getGia() {
-		return Gia;
+		return gia;
 	}
-	public void setGia(float gia) {
-		Gia = gia;
+	public void setGia(double giatien) {
+		gia = giatien;
 	}
 
 }
