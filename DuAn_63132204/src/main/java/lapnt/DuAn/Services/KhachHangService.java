@@ -11,4 +11,6 @@ public interface KhachHangService {
 
 	public List<KhachHang> getAllKhachHang();
 	public KhachHang getKhachHangById(String maKH);
+	public void addKhachHang(KhachHang kh);
+	public void deleteKhachHang(String maKH);
 }

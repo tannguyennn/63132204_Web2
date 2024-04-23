@@ -16,6 +16,7 @@ public class KhachHang {
 	private String email;
 	@Column(name="SDTKH" )
 	private String sdt;
+	
 	public String getMaKH() {
 		return maKH;
 	}
@@ -47,5 +48,14 @@ public class KhachHang {
 		this.sdt = sdt;
 	}
 	
-	
+	@Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + maKH +
+                ", name='" + hoTen + '\'' +
+                ", address='" + diaChi + '\'' +
+                ", email='" + email + '\'' +
+                ", sdt='" + sdt + '\'' +
+                '}';
+    }
 }
