@@ -1,9 +1,11 @@
 package lapnt.DuAn_CuoiKy.Repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import lapnt.DuAn.Models.KhachHang;
+import lapnt.DuAn_CuoiKy.Models.KhachHang;
 
-public interface KhachHangRepository extends JpaRepository<KhachHang, Int> {
-
+@Repository
+public interface KhachHangRepository extends JpaRepository<KhachHang, Integer> {
 }
+

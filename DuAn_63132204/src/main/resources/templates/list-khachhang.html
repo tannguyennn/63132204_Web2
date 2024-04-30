@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Khách hàng</title>
+</head>
+<body>
+    <h2>Danh sách Khách hàng</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Họ và tên</th>
+                <th>Địa chỉ</th>
+                <th>Email</th>
+                <th>Số điện thoại</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="khachHang : ${listKhachHang}">
+                <td th:text="${khachHang.idkh}"></td>
+                <td th:text="${khachHang.hotenkh}"></td>
+                <td th:text="${khachHang.diachikh}"></td>
+                <td th:text="${khachHang.emailkh}"></td>
+                <td th:text="${khachHang.sdtkh}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/khachhang/add">Thêm mới</a>
+</body>
+</html>

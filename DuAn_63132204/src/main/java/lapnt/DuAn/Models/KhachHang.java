@@ -8,60 +8,67 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table (name="khachhang")
+@Table(name = "khachhang")
 public class KhachHang {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "IDKH")    
-	private int id;        
-	@Column(name="HoTenKH" )
-	private String hoTen;
-	@Column(name="DiaChiKH" )
-	private String diaChi;
-	@Column(name="EmailKH" )
-	private String email;
-	@Column(name="SDTKH" )
-	private String sdt;
-	
-	public int getMaKH() {
-		return id;
-	}
-	public void setMaKH(int maKH) {
-		this.id = maKH;
-	}
-	public String getHoTen() {
-		return hoTen;
-	}
-	public void setHoTen(String hoTen) {
-		this.hoTen = hoTen;
-	}
-	public String getDiaChi() {
-		return diaChi;
-	}
-	public void setDiaChi(String diaChi) {
-		this.diaChi = diaChi;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getSdt() {
-		return sdt;
-	}
-	public void setSdt(String sdt) {
-		this.sdt = sdt;
-	}
-	
-	@Override
-    public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", name='" + hoTen + '\'' +
-                ", address='" + diaChi + '\'' +
-                ", email='" + email + '\'' +
-                ", sdt='" + sdt + '\'' +
-                '}';
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idkh")
+    private int idkh;
+
+    @Column(name = "hotenkh")
+    private String hotenkh;
+
+    @Column(name = "diachikh")
+    private String diachikh;
+
+    @Column(name = "emailkh")
+    private String emailkh;
+
+    @Column(name = "sdtkh")
+    private String sdtkh;
+
+
+    // Getters and Setters
+    public int getIdkh() {
+        return idkh;
     }
+
+    public void setIdkh(int idkh) {
+        this.idkh = idkh;
+    }
+
+    public String getHotenkh() {
+        return hotenkh;
+    }
+
+    public void setHotenkh(String hotenkh) {
+        this.hotenkh = hotenkh;
+    }
+
+    public String getDiachikh() {
+        return diachikh;
+    }
+
+    public void setDiachikh(String diachikh) {
+        this.diachikh = diachikh;
+    }
+
+    public String getEmailkh() {
+        return emailkh;
+    }
+
+    public void setEmailkh(String emailkh) {
+        this.emailkh = emailkh;
+    }
+
+    public String getSdtkh() {
+        return sdtkh;
+    }
+
+    public void setSdtkh(String sdtkh) {
+        this.sdtkh = sdtkh;
+    }
+
 }
+
