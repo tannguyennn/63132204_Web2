@@ -1,4 +1,4 @@
-package lapnt.DuAn.Services;
+package lapnt.DuAn_CuoiKy.Services;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,7 +19,7 @@ public class KhachHangServiceImpl implements KhachHangService {
 	}
 
 	@Override
-	public KhachHang getKhachHangById(int maKH) {
+	public KhachHang getKhachHangById(String maKH) {
 		Optional<KhachHang> opt = kHRepo.findById(maKH);
 		if (opt.isPresent()) return opt.get();
 		else return null;
@@ -32,7 +32,7 @@ public class KhachHangServiceImpl implements KhachHangService {
 	}
 
 	@Override
-	public void deleteKhachHang(int maKH) {
+	public void deleteKhachHang(String maKH) {
 		kHRepo.deleteById(maKH);
 		
 	}

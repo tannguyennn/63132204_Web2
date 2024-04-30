@@ -1,4 +1,4 @@
-package lapnt.DuAn.Services;
+package lapnt.DuAn_CuoiKy.Services;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import lapnt.DuAn.Models.KhachHang;
 public interface KhachHangService {
 
 	public List<KhachHang> getAllKhachHang();
-	public KhachHang getKhachHangById(int maKH);
+	public KhachHang getKhachHangById(String maKH);
 	public void addKhachHang(KhachHang kh);
-	public void deleteKhachHang(int maKH);
+	public void deleteKhachHang(String maKH);
 }

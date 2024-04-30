@@ -1,5 +1,4 @@
-package lapnt.DuAn.Models;
-
+package lapnt.DuAn_CuoiKy.Models;
 import java.math.BigDecimal;
 
 import jakarta.persistence.Column;
@@ -10,23 +9,23 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "DichVu")
-public class DichVu {
+@Table(name = "SanPham")
+public class SanPham {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IDDV")
+    @Column(name = "IDSP")
     private int id;
 
-    @Column(name = "TenDV")
-    private String tenDV;
+    @Column(name = "TenSP")
+    private String tenSP;
 
     @Column(name = "MoTa", columnDefinition = "TEXT")
     private String moTa;
 
     @Column(name = "Gia")
     private BigDecimal gia;
-
+    
  // Constructors, getters, and setters
 	public int getId() {
 		return id;
@@ -36,12 +35,12 @@ public class DichVu {
 		this.id = id;
 	}
 
-	public String getTenDV() {
-		return tenDV;
+	public String getTenSP() {
+		return tenSP;
 	}
 
-	public void setTenDV(String tenDV) {
-		this.tenDV = tenDV;
+	public void setTenSP(String tenSP) {
+		this.tenSP = tenSP;
 	}
 
 	public String getMoTa() {

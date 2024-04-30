@@ -1,4 +1,4 @@
-package lapnt.DuAn.Models;
+package lapnt.DuAn_CuoiKy.Models;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -30,38 +30,5 @@ public class HoaDon {
     @Column(name = "NgayGD")
     private Date ngayGD;
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public KhachHang getKhachHang() {
-		return khachHang;
-	}
-
-	public void setKhachHang(KhachHang khachHang) {
-		this.khachHang = khachHang;
-	}
-
-	public BigDecimal getTongHD() {
-		return tongHD;
-	}
-
-	public void setTongHD(BigDecimal tongHD) {
-		this.tongHD = tongHD;
-	}
-
-	public Date getNgayGD() {
-		return ngayGD;
-	}
-
-	public void setNgayGD(Date ngayGD) {
-		this.ngayGD = ngayGD;
-	}
-
     // Constructors, getters, and setters
-    
 }

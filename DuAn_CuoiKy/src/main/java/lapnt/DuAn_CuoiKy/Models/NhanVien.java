@@ -1,4 +1,4 @@
-package lapnt.DuAn.Models;
+package lapnt.DuAn_CuoiKy.Models;
 
 import java.sql.Date;
 

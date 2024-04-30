@@ -1,4 +1,4 @@
-package lapnt.DuAn.Models;
+package lapnt.DuAn_CuoiKy.Models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

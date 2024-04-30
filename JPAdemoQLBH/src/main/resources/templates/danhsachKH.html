@@ -11,17 +11,13 @@
 				<th>Mã KH</th>
 				<th>Tên KH </th>
 				<th>Địa chỉ </th>
-				<th>Email</th>
-				<th>SĐT </th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="kh : ${dsKhachHang}">
 				<td th:text="${kh.id}" />
-				<td th:text="${kh.hoTen}" />
-				<td th:text="${kh.diaChi}" />
-				<td th:text="${kh.email}" />
-				<td th:text="${kh.sdt}" />
+				<td th:text="${kh.name}" />
+				<td th:text="${kh.address}" />
 			</tr>
 		</tbody>
 	</table>

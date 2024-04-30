@@ -1,54 +1,82 @@
 package lapnt.DuAn.Models;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table (name="cthddichvu")
+@Table(name = "CTHDDV")
 public class CTHDDichVu {
-	@Id
-	@Column(name = "IDCTHD")    
-	private String maCTHD;        
-	@Column(name="IDHD" )
-	private String maHD;
-	@Column(name="IDDV" )
-	private String maDV;
-	@Column(name="IDPet" )
-	private String maPet;
-	@Column(name="Tong" )
-	private double giaTien;
-	public String getMaCTHD() {
-		return maCTHD;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "IDCTHD")
+    private int id;
+
+    @ManyToOne
+    @JoinColumn(name = "IDHD")
+    private HoaDon hoaDon;
+
+    @ManyToOne
+    @JoinColumn(name = "IDDV")
+    private DichVu dichVu;
+
+    @ManyToOne
+    @JoinColumn(name = "IDPet")
+    private ThuCung thuCung;
+
+    @Column(name = "Tong")
+    private BigDecimal tong;
+
+    // Constructors, getters, and setters
+	public int getId() {
+		return id;
 	}
-	public void setMaCTHD(String maCTHD) {
-		this.maCTHD = maCTHD;
+
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getMaHD() {
-		return maHD;
+
+	public HoaDon getHoaDon() {
+		return hoaDon;
 	}
-	public void setMaHD(String maHD) {
-		this.maHD = maHD;
+
+	public void setHoaDon(HoaDon hoaDon) {
+		this.hoaDon = hoaDon;
 	}
-	public String getMaDV() {
-		return maDV;
+
+	public DichVu getDichVu() {
+		return dichVu;
 	}
-	public void setMaDV(String maDV) {
-		this.maDV = maDV;
+
+	public void setDichVu(DichVu dichVu) {
+		this.dichVu = dichVu;
 	}
-	public String getMaPet() {
-		return maPet;
+
+	public ThuCung getThuCung() {
+		return thuCung;
 	}
-	public void setMaPet(String maPet) {
-		this.maPet = maPet;
+
+	public void setThuCung(ThuCung thuCung) {
+		this.thuCung = thuCung;
 	}
-	public double getGiaTien() {
-		return giaTien;
+
+	public BigDecimal getTong() {
+		return tong;
 	}
-	public void setGiaTien(double giaTien) {
-		this.giaTien = giaTien;
+
+	public void setTong(BigDecimal tong) {
+		this.tong = tong;
 	}
-	
-	
+
+   
+    
+    
 }

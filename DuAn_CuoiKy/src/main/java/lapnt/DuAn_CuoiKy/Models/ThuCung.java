@@ -1,4 +1,4 @@
-package lapnt.DuAn.Models;
+package lapnt.DuAn_CuoiKy.Models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,8 +30,7 @@ public class ThuCung {
 
     @Column(name = "TinhTrang")
     private String tinhTrang;
-    
- // Constructors, getters, and setters
+
 	public int getId() {
 		return id;
 	}
@@ -72,7 +71,7 @@ public class ThuCung {
 		this.tinhTrang = tinhTrang;
 	}
 
-    
+    // Constructors, getters, and setters
     
     
 }
