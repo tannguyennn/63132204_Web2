@@ -2,97 +2,90 @@ package lapnt.DuAn.Models;
 
 import java.sql.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "NhanVien")
+@Table(name = "nhanvien")
 public class NhanVien {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IDNV")
-    private int id;
+    @Column(name = "idnv")
+    private int idnv;
 
-    @Column(name = "HoTenNV")
-    private String hoTen;
+    @Column(name = "hotennv")
+    private String hotennv;
 
-    @Column(name = "NgaySinh")
-    private Date ngaySinh;
+    @Column(name = "ngaysinh")
+    private Date ngaysinh;
 
-    @Column(name = "GioiTinh")
-    private String gioiTinh;
+    @Column(name = "gioitinh")
+    private String gioitinh;
 
-    @Column(name = "DiaChiNV")
-    private String diaChi;
+    @Column(name = "diachinv")
+    private String diachinv;
 
-    @Column(name = "EmailNV")
-    private String email;
+    @Column(name = "emailnv")
+    private String emailnv;
 
-    @Column(name = "SDTNV")
-    private String sdt;
+    @Column(name = "sdtnv")
+    private String sdtnv;
 
-	public int getId() {
-		return id;
+	public int getIdnv() {
+		return idnv;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdnv(int idnv) {
+		this.idnv = idnv;
 	}
 
-	public String getHoTen() {
-		return hoTen;
+	public String getHotennv() {
+		return hotennv;
 	}
 
-	public void setHoTen(String hoTen) {
-		this.hoTen = hoTen;
+	public void setHotennv(String hotennv) {
+		this.hotennv = hotennv;
 	}
 
-	public Date getNgaySinh() {
-		return ngaySinh;
+	public Date getNgaysinh() {
+		return ngaysinh;
 	}
 
-	public void setNgaySinh(Date ngaySinh) {
-		this.ngaySinh = ngaySinh;
+	public void setNgaysinh(Date ngaysinh) {
+		this.ngaysinh = ngaysinh;
 	}
 
-	public String getGioiTinh() {
-		return gioiTinh;
+	public String getGioitinh() {
+		return gioitinh;
 	}
 
-	public void setGioiTinh(String gioiTinh) {
-		this.gioiTinh = gioiTinh;
+	public void setGioitinh(String gioitinh) {
+		this.gioitinh = gioitinh;
 	}
 
-	public String getDiaChi() {
-		return diaChi;
+	public String getDiachinv() {
+		return diachinv;
 	}
 
-	public void setDiaChi(String diaChi) {
-		this.diaChi = diaChi;
+	public void setDiachinv(String diachinv) {
+		this.diachinv = diachinv;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getEmailnv() {
+		return emailnv;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmailnv(String emailnv) {
+		this.emailnv = emailnv;
 	}
 
-	public String getSdt() {
-		return sdt;
+	public String getSdtnv() {
+		return sdtnv;
 	}
 
-	public void setSdt(String sdt) {
-		this.sdt = sdt;
+	public void setSdtnv(String sdtnv) {
+		this.sdtnv = sdtnv;
 	}
 
-    // Constructors, getters, and setters
     
 }

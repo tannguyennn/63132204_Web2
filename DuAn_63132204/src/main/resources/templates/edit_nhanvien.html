@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sửa thông tin Nhân viên</title>
+</head>
+<body>
+    <h2>Sửa thông tin Nhân viên</h2>
+    <form action="/nhanvien/update/{id}" method="post" th:object="${nhanVien}">
+        <input type="hidden" th:field="*{idnv}"/>
+        <label>Họ và tên:</label>
+        <input type="text" th:field="*{hotennv}"/><br/>
+        <label>Ngày sinh:</label>
+        <input type="date" th:field="*{ngaysinh}"/><br/>
+        <label>Giới tính:</label>
+        <input type="text" th:field="*{gioitinh}"/><br/>
+        <label>Địa chỉ:</label>
+        <input type="text" th:field="*{diachinv}"/><br/>
+        <label>Email:</label>
+        <input type="text" th:field="*{emailnv}"/><br/>
+        <label>Số điện thoại:</label>
+        <input type="text" th:field="*{sdtnv}"/><br/>
+        <button type="submit">Cập nhật</button>
+    </form>
+</body>
+</html>
