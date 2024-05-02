@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Danh sách Nhân viên</title>
+<title>Pet Shop</title>
+<meta charset="utf-8">
+<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <h2>Danh sách Nhân viên</h2>
+<div id="header"> <a href="/" id="logo"><img src="images/logo.gif" width="310" height="114" alt=""></a>
+  <ul class="navigation">
+    <li><a href="/">Trang chủ</a></li>
+    <li><a href="/khachhang">Khách hàng</a></li>
+    <li class="active"><a href="/nhanvien">Nhân viên</a></li>
+    <li><a href="blog.html">Dịch vụ</a></li>
+    <li><a href="petguide.html">Sản Phẩm</a></li>
+    <li><a href="petguide.html">Thanh Toán</a></li>
+  </ul>
+</div>
+<div id="body">
+  <h2 id="table-title">Danh sách Nhân viên</h2>
     <table border="1">
         <thead>
             <tr>
@@ -31,5 +43,9 @@
         </tbody>
     </table>
     <a href="/nhanvien/add">Thêm mới</a>
+</div>
+<div id="footer">
+  <p>&copy; 2024 Cửa hàng Chăm sóc Thú cưng</p>
+</div>
 </body>
 </html>
