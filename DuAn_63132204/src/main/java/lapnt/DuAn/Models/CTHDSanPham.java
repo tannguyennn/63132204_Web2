@@ -1,76 +1,72 @@
 package lapnt.DuAn.Models;
 
-import java.math.BigDecimal;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+
 import jakarta.persistence.Table;
 
+
 @Entity
-@Table(name = "CTHDSP")
+@Table(name = "cthdsanpham")
 public class CTHDSanPham {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IDCTHD")
-    private int id;
+    @Column(name = "idcthd")
+    private int idcthd;
 
-    @ManyToOne
-    @JoinColumn(name = "IDHD")
-    private HoaDon hoaDon;
+    @Column(name = "idhd")
+    private int idhd;
 
-    @ManyToOne
-    @JoinColumn(name = "IDSP")
-    private SanPham sanPham;
+    @Column(name = "idsp")
+    private int idsp;
 
-    @Column(name = "SoLuong")
-    private int soLuong;
+    @Column(name = "soluong")
+    private int soluong;
 
-    @Column(name = "Tong")
-    private BigDecimal tong;
- // Constructors, getters, and setters
-	public int getId() {
-		return id;
+    @Column(name = "tong")
+    private double tong;
+ // Getters and Setters
+	public int getIdcthd() {
+		return idcthd;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdcthd(int idcthd) {
+		this.idcthd = idcthd;
 	}
 
-	public HoaDon getHoaDon() {
-		return hoaDon;
+	public int getIdhd() {
+		return idhd;
 	}
 
-	public void setHoaDon(HoaDon hoaDon) {
-		this.hoaDon = hoaDon;
+	public void setIdhd(int idhd) {
+		this.idhd = idhd;
 	}
 
-	public SanPham getSanPham() {
-		return sanPham;
+	public int getIdsp() {
+		return idsp;
 	}
 
-	public void setSanPham(SanPham sanPham) {
-		this.sanPham = sanPham;
+	public void setIdsp(int idsp) {
+		this.idsp = idsp;
 	}
 
-	public int getSoLuong() {
-		return soLuong;
+	public int getSoluong() {
+		return soluong;
 	}
 
-	public void setSoLuong(int soLuong) {
-		this.soLuong = soLuong;
+	public void setSoluong(int soluong) {
+		this.soluong = soluong;
 	}
 
-	public BigDecimal getTong() {
+	public double getTong() {
 		return tong;
 	}
 
-	public void setTong(BigDecimal tong) {
+	public void setTong(double tong) {
 		this.tong = tong;
 	}
 

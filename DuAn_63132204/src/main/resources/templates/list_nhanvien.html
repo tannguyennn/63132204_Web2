@@ -11,16 +11,23 @@
     <li><a href="/">Trang chủ</a></li>
     <li><a href="/khachhang">Khách hàng</a></li>
     <li class="active"><a href="/nhanvien">Nhân viên</a></li>
-    <li><a href="blog.html">Dịch vụ</a></li>
-    <li><a href="petguide.html">Sản Phẩm</a></li>
-    <li><a href="petguide.html">Thanh Toán</a></li>
+    <li><a href="/dichvu">Dịch vụ</a></li>
+    <li><a href="/sanpham">Sản Phẩm</a></li>
+    <li><a href="/thanhtoan">Thanh Toán</a></li>
   </ul>
 </div>
 <div id="body">
   <h2 id="table-title">Danh sách Nhân viên</h2>
+  
+  	<h3>Tìm kiếm Nhân viên</h3>
+    <form th:action="@{/nhanvien/search}" method="get">
+        <input type="text" name="keyword" placeholder="Nhập từ khóa tìm kiếm..."/>
+        <button type="submit">Tìm kiếm</button>
+    </form>
+    
     <table border="1">
         <thead>
-            <tr>
+            <tr id="danh">
                 <th>ID</th>
                 <th>Họ và tên</th>
                 <th>Ngày sinh</th>

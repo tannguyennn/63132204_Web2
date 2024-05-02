@@ -9,4 +9,8 @@ public class HomeController {
 	public String TrangChu() {
 		return "index";
 	}
+	@GetMapping("/thanhtoan")
+	public String ThanhToan() {
+		return "thanhtoan";
+	}
 }

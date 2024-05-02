@@ -5,47 +5,45 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+
 @Entity
-@Table(name = "ThuCung")
+@Table(name = "thucung")
 public class ThuCung {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IDPet")
-    private int id;
+    @Column(name = "idpet")
+    private int idpet;
 
-    @Column(name = "TenPet")
-    private String tenPet;
+    @Column(name = "tenpet")
+    private String tenpet;
 
-    @Column(name = "Loai")
+    @Column(name = "loai")
     private String loai;
 
-    @ManyToOne
-    @JoinColumn(name = "IDKH")
-    private KhachHang khachHang;
+    @Column(name = "idkh")
+    private int idkh;
 
-    @Column(name = "TinhTrang")
-    private String tinhTrang;
+    @Column(name = "tinhtrang")
+    private String tinhtrang;
     
- // Constructors, getters, and setters
-	public int getId() {
-		return id;
+ // Getters and Setters
+	public int getIdpet() {
+		return idpet;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdpet(int idpet) {
+		this.idpet = idpet;
 	}
 
-	public String getTenPet() {
-		return tenPet;
+	public String getTenpet() {
+		return tenpet;
 	}
 
-	public void setTenPet(String tenPet) {
-		this.tenPet = tenPet;
+	public void setTenpet(String tenpet) {
+		this.tenpet = tenpet;
 	}
 
 	public String getLoai() {
@@ -56,23 +54,22 @@ public class ThuCung {
 		this.loai = loai;
 	}
 
-	public KhachHang getKhachHang() {
-		return khachHang;
+	public int getIdkh() {
+		return idkh;
 	}
 
-	public void setKhachHang(KhachHang khachHang) {
-		this.khachHang = khachHang;
+	public void setIdkh(int idkh) {
+		this.idkh = idkh;
 	}
 
-	public String getTinhTrang() {
-		return tinhTrang;
+	public String getTinhtrang() {
+		return tinhtrang;
 	}
 
-	public void setTinhTrang(String tinhTrang) {
-		this.tinhTrang = tinhTrang;
+	public void setTinhtrang(String tinhtrang) {
+		this.tinhtrang = tinhtrang;
 	}
 
-    
     
     
 }

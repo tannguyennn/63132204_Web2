@@ -1,82 +1,74 @@
 package lapnt.DuAn.Models;
 
-import java.math.BigDecimal;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+
 @Entity
-@Table(name = "CTHDDV")
+@Table(name = "cthddichvu")
 public class CTHDDichVu {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IDCTHD")
-    private int id;
+    @Column(name = "idcthd")
+    private int idcthd;
 
-    @ManyToOne
-    @JoinColumn(name = "IDHD")
-    private HoaDon hoaDon;
+    @Column(name = "idhd")
+    private int idhd;
 
-    @ManyToOne
-    @JoinColumn(name = "IDDV")
-    private DichVu dichVu;
+    @Column(name = "iddv")
+    private int iddv;
 
-    @ManyToOne
-    @JoinColumn(name = "IDPet")
-    private ThuCung thuCung;
+    @Column(name = "idpet")
+    private int idpet;
 
-    @Column(name = "Tong")
-    private BigDecimal tong;
-
-    // Constructors, getters, and setters
-	public int getId() {
-		return id;
+    @Column(name = "tong")
+    private double tong;
+    // Getters and Setters
+	public int getIdcthd() {
+		return idcthd;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdcthd(int idcthd) {
+		this.idcthd = idcthd;
 	}
 
-	public HoaDon getHoaDon() {
-		return hoaDon;
+	public int getIdhd() {
+		return idhd;
 	}
 
-	public void setHoaDon(HoaDon hoaDon) {
-		this.hoaDon = hoaDon;
+	public void setIdhd(int idhd) {
+		this.idhd = idhd;
 	}
 
-	public DichVu getDichVu() {
-		return dichVu;
+	public int getIddv() {
+		return iddv;
 	}
 
-	public void setDichVu(DichVu dichVu) {
-		this.dichVu = dichVu;
+	public void setIddv(int iddv) {
+		this.iddv = iddv;
 	}
 
-	public ThuCung getThuCung() {
-		return thuCung;
+	public int getIdpet() {
+		return idpet;
 	}
 
-	public void setThuCung(ThuCung thuCung) {
-		this.thuCung = thuCung;
+	public void setIdpet(int idpet) {
+		this.idpet = idpet;
 	}
 
-	public BigDecimal getTong() {
+	public double getTong() {
 		return tong;
 	}
 
-	public void setTong(BigDecimal tong) {
+	public void setTong(double tong) {
 		this.tong = tong;
 	}
 
-   
-    
+
     
 }

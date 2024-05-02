@@ -1,64 +1,58 @@
 package lapnt.DuAn.Models;
-import java.math.BigDecimal;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "SanPham")
+@Table(name = "sanpham")
 public class SanPham {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IDSP")
-    private int id;
+    @Column(name = "idsp")
+    private int idsp;
 
-    @Column(name = "TenSP")
-    private String tenSP;
+    @Column(name = "tensp")
+    private String tensp;
 
-    @Column(name = "MoTa", columnDefinition = "TEXT")
-    private String moTa;
+    @Column(name = "mota")
+    private String mota;
 
-    @Column(name = "Gia")
-    private BigDecimal gia;
+    @Column(name = "gia")
+    private double gia;
+
     
- // Constructors, getters, and setters
-	public int getId() {
-		return id;
+    // Constructors, getters, and setters
+       
+	public int getIdsp() {
+		return idsp;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdsp(int idsp) {
+		this.idsp = idsp;
 	}
 
-	public String getTenSP() {
-		return tenSP;
+	public String getTensp() {
+		return tensp;
 	}
 
-	public void setTenSP(String tenSP) {
-		this.tenSP = tenSP;
+	public void setTensp(String tensp) {
+		this.tensp = tensp;
 	}
 
-	public String getMoTa() {
-		return moTa;
+	public String getMota() {
+		return mota;
 	}
 
-	public void setMoTa(String moTa) {
-		this.moTa = moTa;
+	public void setMota(String mota) {
+		this.mota = mota;
 	}
 
-	public BigDecimal getGia() {
+	public double getGia() {
 		return gia;
 	}
 
-	public void setGia(BigDecimal gia) {
+	public void setGia(double gia) {
 		this.gia = gia;
 	}
-
-    
     
 }

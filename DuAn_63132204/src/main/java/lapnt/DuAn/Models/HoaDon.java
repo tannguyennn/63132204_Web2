@@ -1,6 +1,5 @@
 package lapnt.DuAn.Models;
 
-import java.math.BigDecimal;
 import java.sql.Date;
 
 import jakarta.persistence.Column;
@@ -8,60 +7,61 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+
 import jakarta.persistence.Table;
+
+
 @Entity
-@Table(name = "HoaDon")
+@Table(name = "hoadon")
 public class HoaDon {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IDHD")
-    private int id;
+    @Column(name = "idhd")
+    private int idhd;
 
-    @ManyToOne
-    @JoinColumn(name = "IDKH")
-    private KhachHang khachHang;
+    @Column(name = "idkh")
+    private int idkh;
 
-    @Column(name = "TongHD")
-    private BigDecimal tongHD;
+    @Column(name = "tonghd")
+    private double tonghd;
 
-    @Column(name = "NgayGD")
-    private Date ngayGD;
+    @Column(name = "ngaygd")
+    private Date ngaygd;
 
-	public int getId() {
-		return id;
+ // Getters and Setters
+	public int getIdhd() {
+		return idhd;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdhd(int idhd) {
+		this.idhd = idhd;
 	}
 
-	public KhachHang getKhachHang() {
-		return khachHang;
+	public int getIdkh() {
+		return idkh;
 	}
 
-	public void setKhachHang(KhachHang khachHang) {
-		this.khachHang = khachHang;
+	public void setIdkh(int idkh) {
+		this.idkh = idkh;
 	}
 
-	public BigDecimal getTongHD() {
-		return tongHD;
+	public double getTonghd() {
+		return tonghd;
 	}
 
-	public void setTongHD(BigDecimal tongHD) {
-		this.tongHD = tongHD;
+	public void setTonghd(double tonghd) {
+		this.tonghd = tonghd;
 	}
 
-	public Date getNgayGD() {
-		return ngayGD;
+	public Date getNgaygd() {
+		return ngaygd;
 	}
 
-	public void setNgayGD(Date ngayGD) {
-		this.ngayGD = ngayGD;
+	public void setNgaygd(Date ngaygd) {
+		this.ngaygd = ngaygd;
 	}
 
-    // Constructors, getters, and setters
+    
     
 }
