@@ -60,11 +60,17 @@ public class NhanVienController {
         nhanVienService.deleteNhanVien(id);
         return "redirect:/nhanvien";
     }
- // Tìm kiếm nhân viên
-    @GetMapping("/nhanvien/search")
-    public String searchNhanVien(@RequestParam("keyword") String keyword, Model model) {
-        List<NhanVien> listNhanVien = nhanVienService.searchNhanVien(keyword);
-        model.addAttribute("listNhanVien", listNhanVien);
-        return "nhanvien";
-    }
+// // Tìm kiếm nhân viên
+//    @GetMapping("/nhanvien/search")
+//    public String searchNhanVien(@RequestParam("keyword") String keyword, Model model) {
+//        List<NhanVien> listNhanVien = nhanVienService.searchNhanVien(keyword);
+//        model.addAttribute("listNhanVien", listNhanVien);
+//        return "nhanvien";
+//    }
+//   // Tìm kiếm nhân viên
+//    @GetMapping("/nhanvien/searchid")
+//    public String searchNhanVienByID( int id, Model model) {
+//        NhanVien nhanVien = nhanVienService.getNhanVienById(id);
+//        return "nhanvien";
+//    }
 }

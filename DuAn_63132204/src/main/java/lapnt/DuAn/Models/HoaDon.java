@@ -23,7 +23,10 @@ public class HoaDon {
     @Column(name = "idkh")
     private int idkh;
 
-    @Column(name = "tonghd")
+    @Column(name = "idnv")
+    private int idnv;
+
+	@Column(name = "tonghd")
     private double tonghd;
 
     @Column(name = "ngaygd")
@@ -44,6 +47,14 @@ public class HoaDon {
 
 	public void setIdkh(int idkh) {
 		this.idkh = idkh;
+	}
+	
+    public int getIdnv() {
+		return idnv;
+	}
+
+	public void setIdnv(int idnv) {
+		this.idnv = idnv;
 	}
 
 	public double getTonghd() {

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import lapnt.DuAn.Models.HoaDon;
 import lapnt.DuAn.Repositories.HoaDonRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -32,6 +33,14 @@ public class HoaDonService {
     // Xóa hóa đơn
     public void deleteHoaDon(int id) {
         hoaDonRepository.deleteById(id);
+    }
+    
+    public List<HoaDon> getHoaDonByDateRange(LocalDate startDate, LocalDate endDate) {
+        return hoaDonRepository.findByNgaygdBetween(startDate, endDate);
+    }
+
+    public int countTongHD(List<HoaDon> hoadon) {
+        return hoadon.size();
     }
 }
 

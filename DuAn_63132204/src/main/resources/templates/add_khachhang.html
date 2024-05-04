@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Thêm mới Khách hàng</title>
+<title>Pet Shop</title>
+<meta charset="utf-8">
+<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <h2>Thêm mới Khách hàng</h2>
+<div id="header"> <a href="/" id="logo"><img src="images/logo.gif" width="310" height="114" alt=""></a>
+  <ul class="navigation">
+    <li><a href="/">Trang chủ</a></li>
+    <li class="active"><a href="/khachhang">Khách hàng</a></li>
+    <li><a href="/nhanvien">Nhân viên</a></li>
+    <li><a href="/dichvu">Dịch vụ</a></li>
+    <li><a href="/sanpham">Sản Phẩm</a></li>
+    <li><a href="/thanhtoan">Thanh Toán</a></li>
+  </ul>
+</div>
+<div id="body">
+  <h2>Thêm mới Khách hàng</h2>
     <form action="/khachhang/save" method="post" th:object="${khachHang}">
         <label>Họ và tên:</label>
         <input type="text" th:field="*{hotenkh}"/><br/>
@@ -17,5 +29,9 @@
         <input type="text" th:field="*{sdtkh}"/><br/>
         <button type="submit">Lưu</button>
     </form>
+</div>
+<div id="footer">
+  <p>&copy; 2024 Cửa hàng Chăm sóc Thú cưng</p>
+</div>
 </body>
 </html>

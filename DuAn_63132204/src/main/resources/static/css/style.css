@@ -5,7 +5,7 @@ body {
 	background-repeat:repeat-x;
 }
 #header {
-	width:1030px;
+	width:1150px;
 	height:72px;
 	position:relative;
 	margin:0 auto;
@@ -49,7 +49,7 @@ body {
 	height:35px;
 	padding:0 20px 0 20px;
 	text-align:center;
-	width:67px;
+	width:75px;
 }
 #header ul.navigation li a:hover {
 	color:#ffffff;
@@ -148,22 +148,22 @@ table {
     border-collapse: collapse;
     width: 100%;
 }
-
 th, td {
-    border: 1px solid #000000;
-    padding: 8px;
+    border: 1px solid #dddddd;
     text-align: left;
+    padding: 8px;
 }
-
 th {
     background-color: #f2f2f2;
 }
 tr:hover{
 	background-color: #c0c0c0;
 }
-tr:nth-child(even) {
-    background-color: #f2f2f2;
+#body .cn{
+	color: #0080ff;
+    text-decoration: underline; 
 }
-tr:nth-child(even):hover {
-    background-color: #c0c0c0;
+#body .cn:hover{
+	color: #ffff00;
+    text-decoration: underline; 
 }

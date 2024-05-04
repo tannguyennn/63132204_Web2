@@ -14,16 +14,12 @@
     <li><a href="/dichvu">Dịch vụ</a></li>
     <li><a href="/sanpham">Sản Phẩm</a></li>
     <li><a href="/thanhtoan">Thanh Toán</a></li>
+    <li><a href="/thongke">Thống kê</a></li>
   </ul>
 </div>
 <div id="body">
   <h2 id="table-title">Danh sách Nhân viên</h2>
   
-  	<h3>Tìm kiếm Nhân viên</h3>
-    <form th:action="@{/nhanvien/search}" method="get">
-        <input type="text" name="keyword" placeholder="Nhập từ khóa tìm kiếm..."/>
-        <button type="submit">Tìm kiếm</button>
-    </form>
     
     <table border="1">
         <thead>
@@ -35,6 +31,7 @@
                 <th>Địa chỉ</th>
                 <th>Email</th>
                 <th>Số điện thoại</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -46,10 +43,14 @@
                 <td th:text="${nhanVien.diachinv}"></td>
                 <td th:text="${nhanVien.emailnv}"></td>
                 <td th:text="${nhanVien.sdtnv}"></td>
+                <td>
+                    <a class="cn" th:href="@{/nhanvien/edit/{id}(id=${nhanVien.idnv})}">Sửa</a>
+                    <a class="cn" th:href="@{/nhanvien/delete/{id}(id=${nhanVien.idnv})}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">Xóa</a>
+                </td>
             </tr>
         </tbody>
     </table>
-    <a href="/nhanvien/add">Thêm mới</a>
+    <a class="cn" href="/nhanvien/add">Thêm mới</a>
 </div>
 <div id="footer">
   <p>&copy; 2024 Cửa hàng Chăm sóc Thú cưng</p>
