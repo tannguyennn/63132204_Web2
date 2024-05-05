@@ -13,7 +13,6 @@
     <li><a href="/nhanvien">Nhân viên</a></li>
     <li><a href="/dichvu">Dịch vụ</a></li>
     <li class="active"><a href="/sanpham">Sản Phẩm</a></li>
-    <li><a href="/thanhtoan">Thanh Toán</a></li>
     <li><a href="/thongke">Thống kê</a></li>
   </ul>
 </div>
@@ -27,6 +26,7 @@
                 <th>Mô tả</th>
                 <th>Giá tiền</th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +35,9 @@
                 <td th:text="${sanpham.tensp}">Name</td>
                 <td th:text="${sanpham.mota}">Description</td>
                 <td th:text="${sanpham.gia}">Price</td>
+                <td>
+                    <a class="cn" th:href="@{/hoadonSP/{id}(id=${sanpham.idsp})}">Thêm Giỏ hàng</a>
+                </td>
                 <td>
                     <a class="cn" th:href="@{/sanpham/edit/{id}(id=${sanpham.idsp})}">Sửa</a>
                     <a class="cn" th:href="@{/sanpham/delete/{id}(id=${sanpham.idsp})}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">Xóa</a>

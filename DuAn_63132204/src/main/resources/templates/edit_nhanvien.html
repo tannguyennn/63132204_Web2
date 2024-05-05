@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Sửa thông tin Nhân viên</title>
+<title>Pet Shop</title>
+<meta charset="utf-8">
+<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <h2>Sửa thông tin Nhân viên</h2>
+<div id="header"> <a href="/" id="logo"><img src="images/logo.gif" width="310" height="114" alt=""></a>
+  <ul class="navigation">
+    <li><a href="/">Trang chủ</a></li>
+    <li><a href="/khachhang">Khách hàng</a></li>
+    <li  class="active"><a href="/nhanvien">Nhân viên</a></li>
+    <li><a href="/dichvu">Dịch vụ</a></li>
+    <li><a href="/sanpham">Sản Phẩm</a></li>
+    <li><a href="/thongke">Thống kê</a></li>
+  </ul>
+</div>
+<div id="body">
+  <h2 id="table-title">Sửa thông tin Nhân viên</h2>
     <form action="/nhanvien/update/{id}" method="post" th:object="${nhanVien}">
         <input type="hidden" th:field="*{idnv}"/>
         <label>Họ và tên:</label>
@@ -22,5 +34,9 @@
         <input type="text" th:field="*{sdtnv}"/><br/>
         <button type="submit">Cập nhật</button>
     </form>
+</div>
+<div id="footer">
+  <p>&copy; 2024 Cửa hàng Chăm sóc Thú cưng</p>
+</div>
 </body>
 </html>

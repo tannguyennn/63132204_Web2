@@ -1,12 +1,6 @@
 package lapnt.DuAn.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "cthddichvu")
@@ -17,14 +11,17 @@ public class CTHDDichVu {
     @Column(name = "idcthd")
     private int idcthd;
 
-    @Column(name = "idhd")
-    private int idhd;
-
-    @Column(name = "iddv")
-    private int iddv;
-
-    @Column(name = "idpet")
-    private int idpet;
+    @ManyToOne
+    @JoinColumn(name = "idhd")
+    private HoaDon hoaDon;
+    
+    @ManyToOne
+    @JoinColumn(name = "iddv")
+    private DichVu dichVu;
+    
+    @ManyToOne
+    @JoinColumn(name = "idpet")
+    private ThuCung thuCung;
 
     @Column(name = "tong")
     private double tong;
@@ -37,28 +34,28 @@ public class CTHDDichVu {
 		this.idcthd = idcthd;
 	}
 
-	public int getIdhd() {
-		return idhd;
+	public HoaDon getHoaDon() {
+		return hoaDon;
 	}
 
-	public void setIdhd(int idhd) {
-		this.idhd = idhd;
+	public void setHoaDon(HoaDon hoaDon) {
+		this.hoaDon = hoaDon;
 	}
 
-	public int getIddv() {
-		return iddv;
+	public DichVu getDichVu() {
+		return dichVu;
 	}
 
-	public void setIddv(int iddv) {
-		this.iddv = iddv;
+	public void setDichVu(DichVu dichVu) {
+		this.dichVu = dichVu;
 	}
 
-	public int getIdpet() {
-		return idpet;
+	public ThuCung getThuCung() {
+		return thuCung;
 	}
 
-	public void setIdpet(int idpet) {
-		this.idpet = idpet;
+	public void setThuCung(ThuCung thuCung) {
+		this.thuCung = thuCung;
 	}
 
 	public double getTong() {

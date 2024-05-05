@@ -1,11 +1,6 @@
 package lapnt.DuAn.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 
 @Entity
@@ -23,11 +18,12 @@ public class ThuCung {
     @Column(name = "loai")
     private String loai;
 
-    @Column(name = "idkh")
-    private int idkh;
-
     @Column(name = "tinhtrang")
     private String tinhtrang;
+    
+    @ManyToOne
+    @JoinColumn(name = "idkh")
+    private KhachHang khachHang;
     
  // Getters and Setters
 	public int getIdpet() {
@@ -54,14 +50,6 @@ public class ThuCung {
 		this.loai = loai;
 	}
 
-	public int getIdkh() {
-		return idkh;
-	}
-
-	public void setIdkh(int idkh) {
-		this.idkh = idkh;
-	}
-
 	public String getTinhtrang() {
 		return tinhtrang;
 	}
@@ -70,6 +58,13 @@ public class ThuCung {
 		this.tinhtrang = tinhtrang;
 	}
 
+	public KhachHang getKhachHang() {
+		return khachHang;
+	}
+
+	public void setKhachHang(KhachHang khachHang) {
+		this.khachHang = khachHang;
+	}
     
     
 }

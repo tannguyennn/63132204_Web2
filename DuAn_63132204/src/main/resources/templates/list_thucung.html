@@ -13,7 +13,6 @@
     <li><a href="/nhanvien">Nhân viên</a></li>
     <li><a href="/dichvu">Dịch vụ</a></li>
     <li><a href="/sanpham">Sản Phẩm</a></li>
-    <li><a href="/thanhtoan">Thanh Toán</a></li>
     <li><a href="/thongke">Thống kê</a></li>
   </ul>
 </div>
@@ -25,7 +24,8 @@
                 <th>ID</th>
                 <th>Tên thú cưng</th>
                 <th>Loại</th>
-                <th>Khách hàng</th>
+                <th>Mã Khách hàng</th>
+                <th>Tên Khách hàng</th>
                 <th>Tình trạng</th>
                 <th></th>
             </tr>
@@ -35,7 +35,8 @@
                 <td th:text="${thucung.idpet}"></td>
                 <td th:text="${thucung.tenpet}"></td>
                 <td th:text="${thucung.loai}"></td>
-                <td th:text="${thucung.idkh}"></td>
+                <td th:text="${thucung.khachHang.idkh}"></td>
+                <td th:text="${thucung.khachHang.hotenkh}"></td>
                 <td th:text="${thucung.tinhtrang}"></td>
                 <td>
                     <a class="cn" th:href="@{/thucung/edit/{id}(id=${thucung.idpet})}">Sửa</a>

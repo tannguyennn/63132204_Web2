@@ -45,4 +45,6 @@ public class CTHDSanPhamController {
         cthdSanPhamService.deleteCTHDSanPham(id);
         return "redirect:/cthdsanpham";
     }
+    
+    
 }

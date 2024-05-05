@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import lapnt.DuAn.Models.DichVu;
 import lapnt.DuAn.Services.DichVuService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -45,4 +46,19 @@ public class DichVuController {
         dichVuService.deleteDichVu(id);
         return "redirect:/dichvu";
     }
+    
+    public List<DichVu> lsDV =  new ArrayList<DichVu>();
+	@GetMapping("/hoadonDV/{id}")
+    public String selectDichVu(@PathVariable("id") int id) {
+    	lsDV.add(dichVuService.getDichVuById(id));
+    	return "redirect:/dichvu";
+    }
+
+	public List<DichVu> getLsDV() {
+		return lsDV;
+	}
+
+	public void setLsDV(List<DichVu> lsDV) {
+		this.lsDV = lsDV;
+	}
 }

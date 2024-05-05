@@ -2,14 +2,7 @@ package lapnt.DuAn.Models;
 
 import java.sql.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-import jakarta.persistence.Table;
-
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "hoadon")
@@ -20,11 +13,13 @@ public class HoaDon {
     @Column(name = "idhd")
     private int idhd;
 
-    @Column(name = "idkh")
-    private int idkh;
-
-    @Column(name = "idnv")
-    private int idnv;
+    @ManyToOne
+    @JoinColumn(name = "idkh")
+    private KhachHang khachHang;
+    
+    @ManyToOne
+    @JoinColumn(name = "idnv")
+    private NhanVien nhanVien;
 
 	@Column(name = "tonghd")
     private double tonghd;
@@ -41,22 +36,6 @@ public class HoaDon {
 		this.idhd = idhd;
 	}
 
-	public int getIdkh() {
-		return idkh;
-	}
-
-	public void setIdkh(int idkh) {
-		this.idkh = idkh;
-	}
-	
-    public int getIdnv() {
-		return idnv;
-	}
-
-	public void setIdnv(int idnv) {
-		this.idnv = idnv;
-	}
-
 	public double getTonghd() {
 		return tonghd;
 	}
@@ -71,6 +50,22 @@ public class HoaDon {
 
 	public void setNgaygd(Date ngaygd) {
 		this.ngaygd = ngaygd;
+	}
+
+	public KhachHang getKhachHang() {
+		return khachHang;
+	}
+
+	public void setKhachHang(KhachHang khachHang) {
+		this.khachHang = khachHang;
+	}
+
+	public NhanVien getNhanVien() {
+		return nhanVien;
+	}
+
+	public void setNhanVien(NhanVien nhanVien) {
+		this.nhanVien = nhanVien;
 	}
 
     

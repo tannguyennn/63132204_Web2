@@ -1,13 +1,6 @@
 package lapnt.DuAn.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-import jakarta.persistence.Table;
-
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "cthdsanpham")
@@ -18,11 +11,13 @@ public class CTHDSanPham {
     @Column(name = "idcthd")
     private int idcthd;
 
-    @Column(name = "idhd")
-    private int idhd;
-
-    @Column(name = "idsp")
-    private int idsp;
+    @ManyToOne
+    @JoinColumn(name = "idhd")
+    private HoaDon hoaDon;
+    
+    @ManyToOne
+    @JoinColumn(name = "idsp")
+    private SanPham sanPham;
 
     @Column(name = "soluong")
     private int soluong;
@@ -38,20 +33,20 @@ public class CTHDSanPham {
 		this.idcthd = idcthd;
 	}
 
-	public int getIdhd() {
-		return idhd;
+	public HoaDon getHoaDon() {
+		return hoaDon;
 	}
 
-	public void setIdhd(int idhd) {
-		this.idhd = idhd;
+	public void setHoaDon(HoaDon hoaDon) {
+		this.hoaDon = hoaDon;
 	}
 
-	public int getIdsp() {
-		return idsp;
+	public SanPham getSanPham() {
+		return sanPham;
 	}
 
-	public void setIdsp(int idsp) {
-		this.idsp = idsp;
+	public void setSanPham(SanPham sanPham) {
+		this.sanPham = sanPham;
 	}
 
 	public int getSoluong() {
