@@ -34,6 +34,11 @@
                 <td th:text="${dichvu.tendv}">Name</td>
                 <td th:text="${dichvu.mota}">Description</td>
                 <td th:text="${dichvu.gia}">Price</td>
+                <td>
+                    <a class="cn" th:href="@{/dichvu/edit/{id}(id=${dichvu.iddv})}">Sửa</a>
+                    <a class="cn" th:href="@{/dichvu/delete/{id}(id=${dichvu.iddv})}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">Xóa</a>
+                </td>
+                
             </tr>
         </tbody>
     </table>

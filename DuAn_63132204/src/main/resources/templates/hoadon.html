@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Pet Shop</title>
+<meta charset="utf-8">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="header"> <a href="/" id="logo"><img src="images/logo.gif" width="310" height="114" alt=""></a>
+  <ul class="navigation">
+    <li><a href="/">Trang chủ</a></li>
+    <li class="active"><a href="/khachhang">Khách hàng</a></li>
+    <li><a href="/nhanvien">Nhân viên</a></li>
+    <li><a href="/dichvu">Dịch vụ</a></li>
+    <li><a href="/sanpham">Sản Phẩm</a></li>
+    <li><a href="/thanhtoan">Thanh Toán</a></li>
+    <li><a href="/thongke">Thống kê</a></li>
+  </ul>
+</div>
+<div id="body">
+  <h2 id="table-title">Danh sách Khách hàng</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Họ và tên</th>
+                <th>Địa chỉ</th>
+                <th>Email</th>
+                <th>Số điện thoại</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="khachHang : ${listKhachHang}">
+                <td th:text="${khachHang.idkh}"></td>
+                <td th:text="${khachHang.hotenkh}"></td>
+                <td th:text="${khachHang.diachikh}"></td>
+                <td th:text="${khachHang.emailkh}"></td>
+                <td th:text="${khachHang.sdtkh}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="footer">
+  <p>&copy; 2024 Cửa hàng Chăm sóc Thú cưng</p>
+</div>
+</body>
+</html>

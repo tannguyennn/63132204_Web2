@@ -36,13 +36,13 @@
                 <td th:text="${sanpham.mota}">Description</td>
                 <td th:text="${sanpham.gia}">Price</td>
                 <td>
-                    <a class="cn" th:href="@{/dichvu/edit/{id}(id=${sanpham.idsp})}">Sửa</a>
-                    <a class="cn" th:href="@{/dichvu/delete/{id}(id=${nhanVien.idnv})}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">Xóa</a>
+                    <a class="cn" th:href="@{/sanpham/edit/{id}(id=${sanpham.idsp})}">Sửa</a>
+                    <a class="cn" th:href="@{/sanpham/delete/{id}(id=${sanpham.idsp})}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">Xóa</a>
                 </td>
             </tr>
         </tbody>
     </table>
-    <a href="/dichvu/add">Thêm mới</a>
+    <a href="/sanpham/add">Thêm mới</a>
 </div>
 <div id="footer">
   <p>&copy; 2024 Cửa hàng Chăm sóc Thú cưng</p>
