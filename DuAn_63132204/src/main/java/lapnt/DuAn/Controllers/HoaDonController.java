@@ -6,11 +6,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import lapnt.DuAn.Models.CTHDDichVu;
+import lapnt.DuAn.Models.CTHDSanPham;
 import lapnt.DuAn.Models.DichVu;
 import lapnt.DuAn.Models.HoaDon;
 import lapnt.DuAn.Models.KhachHang;
 import lapnt.DuAn.Models.NhanVien;
 import lapnt.DuAn.Models.SanPham;
+import lapnt.DuAn.Services.CTHDDichVuService;
+import lapnt.DuAn.Services.CTHDSanPhamService;
 import lapnt.DuAn.Services.DichVuService;
 import lapnt.DuAn.Services.HoaDonService;
 import lapnt.DuAn.Services.KhachHangService;
@@ -34,7 +38,10 @@ public class HoaDonController {
     private KhachHangService khachHangService;
     @Autowired
     private NhanVienService nhanVienService;
-    
+//    @Autowired
+//    private CTHDDichVuService cthdDichVuService;
+//    @Autowired
+//    private CTHDSanPhamService cthdSanPhamService;
     
  // Hiển thị danh sách hóa đơn
     @GetMapping("/hoadon")
@@ -96,23 +103,23 @@ public class HoaDonController {
 	public List<SanPham> lsSP = new ArrayList<SanPham>();
 	public List<DichVu> lsDV =  new ArrayList<DichVu>();
 	
-	@GetMapping("/hoadonkhachhang/{id}")
-	public String HoaDonKhachHang(@PathVariable("id") int id,Model model) {
-		KhachHang kh = khachHangService.getKhachHangById(id);
+	@GetMapping("/hoadonkhachhang")
+	public String HoaDonKhachHang(Model model) {
+		List<KhachHang> listKhachHang = khachHangService.getAllKhachHang();
 		List<NhanVien> listNhanVien = nhanVienService.getAllNhanVien();
 		
+		model.addAttribute("listKhachHang", listKhachHang);
         model.addAttribute("listNhanVien", listNhanVien);
-		model.addAttribute("kh",kh);
 		model.addAttribute("lsSP",lsSP);
 		model.addAttribute("lsDV",lsDV);
+		
 		return "hoadon";
 	}
 	
 	
 	@GetMapping("/hoadonSP/{id}")
     public String selectSanPham(@PathVariable("id") int id) {
-		SanPham sp = sanPhamService.getSanPhamById(id);
-    	lsSP.add(sp);
+    	lsSP.add(sanPhamService.getSanPhamById(id));
     	return "redirect:/sanpham";
     }
 
@@ -122,6 +129,16 @@ public class HoaDonController {
     	return "redirect:/dichvu";
     }
 
+	
+//	//chi tiết hóa đơn
+//	@GetMapping("/cthd/{id}")
+//    public String cthd(@PathVariable("id") int idhd, Model model) {
+//		List<CTHDDichVu> cthdDichVuList = cthdDichVuService.findByHoaDonId(idhd);
+//        model.addAttribute("cthdDichVuList", cthdDichVuList);
+//        List<CTHDSanPham> cthdSanPhamList = cthdSanPhamService.findByHoaDonId(idhd);
+//        model.addAttribute("cthdSanPhamList", cthdSanPhamList);
+//    	return "cthd";
+//    }
     
 }
 

@@ -33,5 +33,9 @@ public class CTHDDichVuService {
     public void deleteCTHDDichVu(int id) {
         cthdDichVuRepository.deleteById(id);
     }
+    
+//    public List<CTHDDichVu> findByHoaDonId(int idhd) {
+//        return cthdDichVuRepository.findByHoaDonId(idhd);
+//    }
 }
 

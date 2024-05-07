@@ -18,27 +18,21 @@
 </div>
 <div id="body">
 <!-- thông tin khách hàng cần lập hóa đơn -->
-<h2 id="table-title">Thông tin Khách hàng</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Họ và tên</th>
-                <th>Địa chỉ</th>
-                <th>Email</th>
-                <th>Số điện thoại</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="khachHang : ${kh}">
-                <td th:text="${khachHang.idkh}"></td>
-                <td th:text="${khachHang.hotenkh}"></td>
-                <td th:text="${khachHang.diachikh}"></td>
-                <td th:text="${khachHang.emailkh}"></td>
-                <td th:text="${khachHang.sdtkh}"></td>
-            </tr>
-        </tbody>
-    </table>
+<h2 id="table-title">Lập hóa đơn</h2>
+<h2>Chọn Khách Hàng</h2>
+    <form>
+        <label for="khachhang">Chọn Khách Hàng:</label>
+        <select id="nhanvien" name="nhanvien">
+            <option value="">-- Chọn Khách Hàng --</option>
+            <!-- Iterate through the list of employees and populate the options -->
+            <option th:each="khachhang : ${listKhachHang}" 
+                    th:value="${khachhang.idkh}" 
+                    th:text="${khachhang.idkh + ' - ' + khachhang.hotenkh + ' - ' + khachhang.sdtkh}">
+            </option>
+        </select>
+        
+        <br><br>
+    </form>
     
  <!--  danh sách sản phẩm khách hàng chọn  -->
   <h2 id="table-title">Danh sách Sản phẩm</h2>
@@ -82,18 +76,17 @@
     </table>
     <!-- chọn nhân viên phụ trách hóa đơn -->
     <h2>Select Employee ID</h2>
-    <form action="#" method="post">
+    <form>
         <label for="nhanvien">Select Employee ID:</label>
         <select id="nhanvien" name="nhanvien">
             <option value="">-- Select Employee ID --</option>
             <!-- Iterate through the list of employees and populate the options -->
             <option th:each="nhanvien : ${listNhanVien}" 
                     th:value="${nhanvien.idnv}" 
-                    th:text="${nhanvien.idnv}">
+                    th:text="${nhanvien.idnv + ' - ' + nhanvien.hotennv}">
             </option>
-        </select>
+        </select>   
         <br><br>
-        <input type="submit" value="Submit">
     </form>
     
 </div>
