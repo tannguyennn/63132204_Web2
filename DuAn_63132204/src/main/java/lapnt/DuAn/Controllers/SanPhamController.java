@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import lapnt.DuAn.Models.SanPham;
 import lapnt.DuAn.Services.SanPhamService;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -47,21 +45,7 @@ public class SanPhamController {
         return "redirect:/sanpham";
     }
     
-    List<SanPham> lsSP = new ArrayList<SanPham>();
-	@GetMapping("/hoadonSP/{id}")
-    public String selectSanPham(@PathVariable("id") int id) {
-		SanPham sp = sanPhamService.getSanPhamById(id);
-    	lsSP.add(sp);
-    	return "redirect:/sanpham";
-    }
-
-	public List<SanPham> getLsSP() {
-		return lsSP;
-	}
-
-	public void setLsSP(List<SanPham> lsSP) {
-		this.lsSP = lsSP;
-	}
+    
     
 }
 
