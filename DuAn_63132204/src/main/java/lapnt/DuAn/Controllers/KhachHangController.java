@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import lapnt.DuAn.Models.KhachHang;
 import lapnt.DuAn.Services.KhachHangService;
 
-import java.util.List;
 import org.springframework.data.domain.Page;
 @Controller
 public class KhachHangController {

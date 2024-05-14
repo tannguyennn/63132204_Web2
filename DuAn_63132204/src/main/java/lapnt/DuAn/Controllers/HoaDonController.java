@@ -6,15 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import lapnt.DuAn.Models.CTHDDichVu;
-import lapnt.DuAn.Models.CTHDSanPham;
 import lapnt.DuAn.Models.DichVu;
 import lapnt.DuAn.Models.HoaDon;
 import lapnt.DuAn.Models.KhachHang;
 import lapnt.DuAn.Models.NhanVien;
 import lapnt.DuAn.Models.SanPham;
-import lapnt.DuAn.Services.CTHDDichVuService;
-import lapnt.DuAn.Services.CTHDSanPhamService;
 import lapnt.DuAn.Services.DichVuService;
 import lapnt.DuAn.Services.HoaDonService;
 import lapnt.DuAn.Services.KhachHangService;
