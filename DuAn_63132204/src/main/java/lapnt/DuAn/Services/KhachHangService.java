@@ -7,6 +7,9 @@ import lapnt.DuAn.Models.KhachHang;
 import lapnt.DuAn.Repositories.KhachHangRepository;
 
 import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 
 @Service
 public class KhachHangService {
@@ -36,6 +39,11 @@ public class KhachHangService {
     
     public List<KhachHang> searchByName(String hotenkh) {
         return khachHangRepository.findByHotenkhContaining(hotenkh);
+    }
+    
+    public Page<KhachHang> searchByName(String hotenkh, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return khachHangRepository.findByHotenkhContaining(hotenkh, pageable);
     }
 }
 

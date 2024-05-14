@@ -9,7 +9,7 @@ import lapnt.DuAn.Models.KhachHang;
 import lapnt.DuAn.Services.KhachHangService;
 
 import java.util.List;
-
+import org.springframework.data.domain.Page;
 @Controller
 public class KhachHangController {
 
@@ -18,17 +18,18 @@ public class KhachHangController {
 
     // Hiển thị danh sách khách hàng
     @GetMapping("/khachhang")
-    public String listAndSearchKhachHang(@RequestParam(name = "name", required = false) String name, Model model) {
-        List<KhachHang> khachHangs;
-        if (name != null && !name.isEmpty()) {
-            khachHangs = khachHangService.searchByName(name);
-        } else {
-            khachHangs = khachHangService.searchByName(""); // or use a method to get all customers
-        }
-        model.addAttribute("listKhachHang", khachHangs);
-        model.addAttribute("searchName", name);
-        return "list_khachhang";
-    }
+    public String listAndSearchKhachHang(@RequestParam(name = "name", required = false, defaultValue = "") String name,
+            @RequestParam(name = "page", required = false, defaultValue = "0") int page,
+            @RequestParam(name = "size", required = false, defaultValue = "5") int size,
+            Model model) 
+    {
+			Page<KhachHang> khachHangPage = khachHangService.searchByName(name, page, size);
+			model.addAttribute("listKhachHang", khachHangPage.getContent());
+			model.addAttribute("currentPage", page);
+			model.addAttribute("totalPages", khachHangPage.getTotalPages());
+			model.addAttribute("searchName", name);
+			return "list_khachhang";
+	}
 
     // Form thêm khách hàng
     @GetMapping("/khachhang/add")
