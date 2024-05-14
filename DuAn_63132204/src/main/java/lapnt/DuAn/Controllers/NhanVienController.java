@@ -18,9 +18,15 @@ public class NhanVienController {
 
     // Hiển thị danh sách nhân viên
     @GetMapping("/nhanvien")
-    public String listNhanVien(Model model) {
-        List<NhanVien> listNhanVien = nhanVienService.getAllNhanVien();
-        model.addAttribute("listNhanVien", listNhanVien);
+    public String listAndSearchNhanVien(@RequestParam(name = "name", required = false) String name, Model model) {
+        List<NhanVien> nhanViens;
+        if (name != null && !name.isEmpty()) {
+            nhanViens = nhanVienService.searchByName(name);
+        } else {
+            nhanViens = nhanVienService.searchByName("");
+        }
+        model.addAttribute("listNhanVien", nhanViens);
+        model.addAttribute("searchName", name);
         return "list_nhanvien";
     }
 
@@ -47,12 +53,6 @@ public class NhanVienController {
         return "edit_nhanvien";
     }
 
-    // Xử lý sửa nhân viên
-    @PostMapping("/nhanvien/update/{id}")
-    public String updateNhanVien(@PathVariable("id") int id, @ModelAttribute("nhanVien") NhanVien nhanVien) {
-        nhanVienService.saveNhanVien(nhanVien);
-        return "redirect:/nhanvien";
-    }
 
     // Xóa nhân viên
     @GetMapping("/nhanvien/delete/{id}")
@@ -60,17 +60,4 @@ public class NhanVienController {
         nhanVienService.deleteNhanVien(id);
         return "redirect:/nhanvien";
     }
-// // Tìm kiếm nhân viên
-//    @GetMapping("/nhanvien/search")
-//    public String searchNhanVien(@RequestParam("keyword") String keyword, Model model) {
-//        List<NhanVien> listNhanVien = nhanVienService.searchNhanVien(keyword);
-//        model.addAttribute("listNhanVien", listNhanVien);
-//        return "nhanvien";
-//    }
-//   // Tìm kiếm nhân viên
-//    @GetMapping("/nhanvien/searchid")
-//    public String searchNhanVienByID( int id, Model model) {
-//        NhanVien nhanVien = nhanVienService.getNhanVienById(id);
-//        return "nhanvien";
-//    }
 }

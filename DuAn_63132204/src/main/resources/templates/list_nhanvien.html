@@ -19,6 +19,11 @@
 <div id="body">
   <h2 id="table-title">Danh sách Nhân viên</h2>
   
+  <form action="#" th:action="@{/nhanvien}" method="get">
+        <input type="text" name="name" placeholder="Nhập tên nhân viên" th:value="${searchName}"/>
+        <button type="submit">Tìm Kiếm</button>
+    </form>
+    <br>
     
     <table border="1">
         <thead>

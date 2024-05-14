@@ -20,8 +20,8 @@ public class KhachHangService {
     }
 
     // Lưu khách hàng mới
-    public void saveKhachHang(KhachHang khachHang) {
-        khachHangRepository.save(khachHang);
+    public KhachHang saveKhachHang(KhachHang khachHang) {
+        return khachHangRepository.save(khachHang);
     }
 
     // Lấy khách hàng theo ID
@@ -32,6 +32,10 @@ public class KhachHangService {
     // Xóa khách hàng
     public void deleteKhachHang(int id) {
         khachHangRepository.deleteById(id);
+    }
+    
+    public List<KhachHang> searchByName(String hotenkh) {
+        return khachHangRepository.findByHotenkhContaining(hotenkh);
     }
 }
 

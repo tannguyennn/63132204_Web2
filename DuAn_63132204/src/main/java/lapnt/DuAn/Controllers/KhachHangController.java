@@ -18,9 +18,15 @@ public class KhachHangController {
 
     // Hiển thị danh sách khách hàng
     @GetMapping("/khachhang")
-    public String listKhachHang(Model model) {
-        List<KhachHang> listKhachHang = khachHangService.getAllKhachHang();
-        model.addAttribute("listKhachHang", listKhachHang);
+    public String listAndSearchKhachHang(@RequestParam(name = "name", required = false) String name, Model model) {
+        List<KhachHang> khachHangs;
+        if (name != null && !name.isEmpty()) {
+            khachHangs = khachHangService.searchByName(name);
+        } else {
+            khachHangs = khachHangService.searchByName(""); // or use a method to get all customers
+        }
+        model.addAttribute("listKhachHang", khachHangs);
+        model.addAttribute("searchName", name);
         return "list_khachhang";
     }
 
@@ -32,7 +38,7 @@ public class KhachHangController {
         return "add_khachhang";
     }
 
-    // Xử lý thêm khách hàng
+    // Xử lý thêm và sửa khách hàng
     @PostMapping("/khachhang/save")
     public String saveKhachHang(@ModelAttribute("khachHang") KhachHang khachHang) {
         khachHangService.saveKhachHang(khachHang);
@@ -47,19 +53,13 @@ public class KhachHangController {
         return "edit_khachhang";
     }
 
-    // Xử lý sửa khách hàng
-    @PostMapping("/khachhang/update/{id}")
-    public String updateKhachHang(@PathVariable("id") int id, @ModelAttribute("khachHang") KhachHang khachHang) {
-        khachHangService.saveKhachHang(khachHang);
-        return "redirect:/khachhang";
-    }
-
     // Xóa khách hàng
     @GetMapping("/khachhang/delete/{id}")
     public String deleteKhachHang(@PathVariable("id") int id) {
         khachHangService.deleteKhachHang(id);
         return "redirect:/khachhang";
     }
+
 }
 
 

@@ -24,7 +24,12 @@
         <label>Ngày sinh:</label>
         <input type="date" th:field="*{ngaysinh}"/><br/>
         <label>Giới tính:</label>
-        <input type="text" th:field="*{gioitinh}"/><br/>
+        <label for="gender"></label>
+        <select id="gender" name="gender" th:field="*{gioitinh}">
+            <option value="Nam">Nam</option>
+            <option value="Nữ">Nữ</option>
+            
+        </select><br/>
         <label>Địa chỉ:</label>
         <input type="text" th:field="*{diachinv}"/><br/>
         <label>Email:</label>

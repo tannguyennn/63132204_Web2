@@ -18,7 +18,7 @@
 </div>
 <div id="body">
   <h2 id="table-title">Sửa thông tin Khách hàng</h2>
-    <form action="/khachhang/update/{id}" method="post" th:object="${khachHang}">
+    <form action="/khachhang/save" method="post" th:object="${khachHang}">
         <input type="hidden" th:field="*{idkh}"/>
         <label>Họ và tên:</label>
         <input type="text" th:field="*{hotenkh}"/><br/>

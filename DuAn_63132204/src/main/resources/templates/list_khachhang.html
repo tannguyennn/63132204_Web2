@@ -18,6 +18,13 @@
 </div>
 <div id="body">
   <h2 id="table-title">Danh sách Khách hàng</h2>
+  
+   <form action="#" th:action="@{/khachhang}" method="get">
+        <input type="text" name="name" placeholder="Nhập tên khách hàng" th:value="${searchName}"/>
+        <button type="submit">Tìm Kiếm</button>
+    </form>
+    <br>
+    
     <table border="1">
         <thead>
             <tr>
@@ -39,7 +46,6 @@
                 <td th:text="${khachHang.sdtkh}"></td>
                 <td>
                     <a class="cn" href="/thucung">Thêm thú cưng</a>
-                    
                 </td>
                 <td>
                     <a class="cn" th:href="@{/khachhang/edit/{id}(id=${khachHang.idkh})}">Sửa</a>
