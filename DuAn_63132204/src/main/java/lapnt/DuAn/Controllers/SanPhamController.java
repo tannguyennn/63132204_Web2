@@ -22,6 +22,12 @@ public class SanPhamController {
         model.addAttribute("listSanPham", listSanPham);
         return "list_sanpham";
     }
+    @GetMapping("/sanpham/add")
+    public String addDicvu(Model model) {
+    	SanPham sanpham = new SanPham();
+    	model.addAttribute("sanpham", sanpham);
+    	return "add_sanpham";
+    }
 
     // Form thêm/sửa sản phẩm
     @PostMapping("/sanpham/save")
@@ -34,7 +40,7 @@ public class SanPhamController {
     @GetMapping("/sanpham/edit/{id}")
     public String editSanPhamForm(@PathVariable("id") int id, Model model) {
         SanPham sanPham = sanPhamService.getSanPhamById(id);
-        model.addAttribute("sanPham", sanPham);
+        model.addAttribute("sanpham", sanPham);
         return "edit_sanpham";
     }
 

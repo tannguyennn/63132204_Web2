@@ -6,32 +6,33 @@
 <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="header"> <a href="/" id="logo"><img src="images/logo.gif" width="310" height="114" alt=""></a>
-  <ul class="navigation">
-    <li><a href="/">Trang chủ</a></li>
-    <li class="active"><a href="/khachhang">Khách hàng</a></li>
-    <li><a href="/nhanvien">Nhân viên</a></li>
-    <li><a href="/dichvu">Dịch vụ</a></li>
-    <li><a href="/sanpham">Sản Phẩm</a></li>
-    <li><a href="/thongke">Thống kê</a></li>
-  </ul>
-</div>
+
 <div id="body">
   <h2>Thêm mới Khách hàng</h2>
     <form action="/khachhang/save" method="post" th:object="${khachHang}">
-        <label>Họ và tên:</label>
-        <input type="text" th:field="*{hotenkh}"/><br/>
-        <label>Địa chỉ:</label>
-        <input type="text" th:field="*{diachikh}"/><br/>
-        <label>Email:</label>
-        <input type="text" th:field="*{emailkh}"/><br/>
-        <label>Số điện thoại:</label>
-        <input type="text" th:field="*{sdtkh}"/><br/>
-        <button type="submit">Lưu</button>
+    <table>
+            <tr>
+                <td>Họ và tên:</td>
+                <td><input type="text" th:field="*{hotenkh}" /></td>
+            </tr>
+            <tr>
+                <td>Địa chỉ:</td>
+                <td><input type="text" th:field="*{diachikh}"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="text" th:field="*{emailkh}" /></td>
+            </tr>
+            <tr>
+                <td>Số điện thoại:</td>
+                <td><input type="text" th:field="*{sdtkh}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Lưu</button></td>
+            </tr>
+        </table>
     </form>
 </div>
-<div id="footer">
-  <p>&copy; 2024 Cửa hàng Chăm sóc Thú cưng</p>
-</div>
+<h2> <a href="/khachhang">Quay lại</a></h2>
 </body>
 </html>

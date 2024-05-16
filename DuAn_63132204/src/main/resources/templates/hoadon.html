@@ -3,10 +3,11 @@
 <head>
 <title>Pet Shop</title>
 <meta charset="utf-8">
-<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
-<div id="header"> <a href="/" id="logo"><img src="images/logo.gif" width="310" height="114" alt=""></a>
+<div id="header"> <a href="/" id="logo"><img src="../images/logo.gif" width="310" height="114" alt=""></a>
   <ul class="navigation">
     <li><a href="/">Trang chủ</a></li>
     <li class="active"><a href="/khachhang">Khách hàng</a></li>
@@ -20,19 +21,8 @@
 <!-- thông tin khách hàng cần lập hóa đơn -->
 <h2 id="table-title">Lập hóa đơn</h2>
 <h2>Chọn Khách Hàng</h2>
-    <form>
-        <label for="khachhang">Chọn Khách Hàng:</label>
-        <select id="khachhang" name="khachhang">
-            <option value="">-- Chọn Khách Hàng --</option>
-            <!-- Iterate through the list of employees and populate the options -->
-            <option th:each="khachhang : ${listKhachHang}" 
-                    th:value="${khachhang.idkh}" 
-                    th:text="${khachhang.idkh + ' - ' + khachhang.hotenkh + ' - ' + khachhang.sdtkh}">
-            </option>
-        </select>
-        
-        <br><br>
-    </form>
+ 	<h2 th:each="khachhang : ${khachhang}" >Khách Hàng: </h2>
+     <h2 th:text="${khachhang.idkh + ' - ' + khachhang.hotenkh + ' - ' + khachhang.sdtkh}"></h2>
     
  <!--  danh sách sản phẩm khách hàng chọn  -->
   <h2 id="table-title">Danh sách Sản phẩm</h2>

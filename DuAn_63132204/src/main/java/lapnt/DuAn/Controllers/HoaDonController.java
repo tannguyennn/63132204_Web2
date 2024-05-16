@@ -99,12 +99,12 @@ public class HoaDonController {
 	public List<SanPham> lsSP = new ArrayList<SanPham>();
 	public List<DichVu> lsDV =  new ArrayList<DichVu>();
 	
-	@GetMapping("/hoadonkhachhang")
-	public String HoaDonKhachHang(Model model) {
-		List<KhachHang> listKhachHang = khachHangService.getAllKhachHang();
+	@GetMapping("/hoadonkhachhang/{id}")
+	public String HoaDonKhachHang(@PathVariable("id") int id,Model model) {
+		KhachHang khachhang = khachHangService.getKhachHangById(id);
 		List<NhanVien> listNhanVien = nhanVienService.getAllNhanVien();
 		
-		model.addAttribute("listKhachHang", listKhachHang);
+		model.addAttribute("khachhang", khachhang);
         model.addAttribute("listNhanVien", listNhanVien);
 		model.addAttribute("lsSP",lsSP);
 		model.addAttribute("lsDV",lsDV);

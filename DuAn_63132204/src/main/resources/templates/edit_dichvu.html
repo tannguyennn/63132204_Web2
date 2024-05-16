@@ -7,8 +7,9 @@
 </head>
 <body>
 <div id="body">
-    <h2>Thêm mới dịch vụ</h2>
+    <h2 id="table-title">Sửa thông tin dịch vụ</h2>
     <form action="/dichvu/save" th:object="${dichvu}" method="post">
+    <input type="hidden" th:field="*{iddv}"/>
         <table>
             <tr>
                 <td>Tên dịch vụ:</td>

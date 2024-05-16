@@ -23,6 +23,13 @@ public class DichVuController {
         model.addAttribute("listDichVu", listDichVu);
         return "list_dichvu";
     }
+    
+    @GetMapping("/dichvu/add")
+    public String addDicvu(Model model) {
+    	DichVu dichvu = new DichVu();
+    	model.addAttribute("dichvu", dichvu);
+    	return "add_dichvu";
+    }
 
     // Form thêm/sửa dịch vụ
     @PostMapping("/dichvu/save")
@@ -35,7 +42,7 @@ public class DichVuController {
     @GetMapping("/dichvu/edit/{id}")
     public String editDichVuForm(@PathVariable("id") int id, Model model) {
         DichVu dichVu = dichVuService.getDichVuById(id);
-        model.addAttribute("dichVu", dichVu);
+        model.addAttribute("dichvu", dichVu);
         return "edit_dichvu";
     }
 

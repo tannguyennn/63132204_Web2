@@ -45,7 +45,8 @@
                 <td th:text="${khachHang.emailkh}"></td>
                 <td th:text="${khachHang.sdtkh}"></td>
                 <td>
-                    <a class="cn" href="/thucung">Thêm thú cưng</a>
+                	<a class="cn" th:href="@{/hoadonkhachhang/{id}(id=${khachHang.idkh})}">Lập Hóa Dơn</a>
+                	<a class="cn" th:href="@{/thucung/add/{id}(id=${khachHang.idkh})}">Thêm thú cưng</a>
                 </td>
                 <td>
                     <a class="cn" th:href="@{/khachhang/edit/{id}(id=${khachHang.idkh})}">Sửa</a>
@@ -68,7 +69,8 @@
             <a th:href="@{/khachhang(name=${searchName}, page=${currentPage + 1}, size=${size})}">Trang sau &raquo;</a>
         </span>
     </div>
-    <a class="cn" href="/khachhang/add">Thêm mới</a>
+    <h2><a class="cn" href="/khachhang/add">Thêm mới</a></h2>
+    <h2><a class="cn" href="/thucung">Danh sách thú cưng</a></h2>
     
 </div>
 <div id="footer">

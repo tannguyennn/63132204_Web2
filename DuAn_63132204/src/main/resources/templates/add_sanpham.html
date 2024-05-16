@@ -7,12 +7,12 @@
 </head>
 <body>
 <div id="body">
-    <h2>Thêm mới dịch vụ</h2>
-    <form action="/dichvu/save" th:object="${dichvu}" method="post">
+    <h2>Thêm mới sản phẩm</h2>
+    <form action="/sanpham/save" th:object="${sanpham}" method="post">
         <table>
             <tr>
                 <td>Tên dịch vụ:</td>
-                <td><input type="text" th:field="*{tendv}" /></td>
+                <td><input type="text" th:field="*{tensp}" /></td>
             </tr>
             <tr>
                 <td>Mô tả:</td>
@@ -28,6 +28,6 @@
         </table>
     </form>
 </div>
-<h2> <a href="/dichvu">Quay lại</a></h2>
+<h2> <a href="/sanpham">Quay lại</a></h2>
 </body>
 </html>
