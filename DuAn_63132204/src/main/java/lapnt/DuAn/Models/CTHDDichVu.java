@@ -3,7 +3,7 @@ package lapnt.DuAn.Models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "cthddichvu")
+@Table(name = "cthddv")
 public class CTHDDichVu {
 
     @Id
