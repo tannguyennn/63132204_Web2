@@ -5,6 +5,46 @@
 <meta charset="utf-8">
 <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
+<style>
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination a {
+    margin: 0 5px;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: #f1f1f1;
+}
+
+.pagination a.current {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.pagination a[disabled] {
+    pointer-events: none;
+    color: #ccc;
+    border-color: #ccc;
+}
+
+.pagination a[disabled]:hover {
+    background-color: transparent;
+}
+
+</style>
 <body>
 <div id="header"> <a href="/" id="logo"><img src="images/logo.gif" width="310" height="114" alt=""></a>
   <ul class="navigation">
@@ -56,7 +96,7 @@
         </tbody>
     </table>
     <br>
-    <div>
+    <div class="pagination">
         <span th:if="${currentPage > 0}">
             <a th:href="@{/khachhang(name=${searchName}, page=${currentPage - 1}, size=${size})}">&laquo; Trang trước</a>
         </span>

@@ -19,6 +19,7 @@ public class ThuCungController {
     private ThuCungService thuCungService;
     @Autowired
     private KhachHangService khachHangService;
+    
     // Hiển thị danh sách thú cưng
     @GetMapping("/thucung")
     public String listThuCung(Model model) {
