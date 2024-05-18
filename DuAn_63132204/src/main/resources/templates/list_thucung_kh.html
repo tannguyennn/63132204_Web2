@@ -3,10 +3,10 @@
 <head>
 <title>Pet Shop</title>
 <meta charset="utf-8">
-<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="header"> <a href="/" id="logo"><img src="images/logo.gif" width="310" height="114" alt=""></a>
+<div id="header"> <a href="/" id="logo"><img src="../images/logo.gif" width="310" height="114" alt=""></a>
   <ul class="navigation">
     <li><a href="/">Trang chủ</a></li>
     <li class="active"><a href="/khachhang">Khách hàng</a></li>
@@ -16,7 +16,7 @@
     <li><a href="/thongke">Thống kê</a></li>
   </ul>
 </div>
-<div id="body">
+<div id="body" th:each="thucung : ${listThuCung }">
   <h2 id="table-title">Danh sách Thú cưng</h2>
     <table border="1">
         <thead>
@@ -31,7 +31,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="thucung : ${listThuCung }">
+            <tr >
                 <td th:text="${thucung.idpet}"></td>
                 <td th:text="${thucung.tenpet}"></td>
                 <td th:text="${thucung.loai}"></td>
@@ -45,6 +45,7 @@
             </tr>
         </tbody>
     </table>
+    <a class="cn" th:href="@{/thucung/add/{id}(id=${thucung.khachHang.idkh})}">Thêm mới</a>
 </div>
 <div id="footer">
   <p>&copy; 2024 Cửa hàng Chăm sóc Thú cưng</p>

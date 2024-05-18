@@ -8,7 +8,7 @@
 <body>
 <div id="body">
   <h2>Thêm Thú cưng</h2>
-    <form action="/thucung/save" th:object="${thucung}" method="post">
+    <form action="/thucung/save" th:object="${thucung}" method="post" >
     <input type="hidden" th:field="*{idpet}"/>
         <table>
             <tr>
@@ -24,9 +24,14 @@
                 </td>
             </tr>
             <tr>
-                <td th:each="khachhang : ${khachhang}">Chủ :</td>
-                <td th:text="${khachhang.idkh + ' - ' + khachhang.hotenkh}"></td>
-                
+                <td>Khách hàng</td>
+                <td><select th:field="*{khachHang.idkh}">
+						<option th:each="khachhang : ${listkhachhang}"
+			                    th:value="${khachhang.idkh}" 
+			                    th:text="${khachhang.idkh + ' - ' + khachhang.hotenkh}">
+			            </option>
+                    </select>
+                </td>
             </tr>
              
             <tr>
@@ -37,8 +42,9 @@
                 <td colspan="2"><button type="submit">Lưu</button></td>
             </tr>
         </table>
+        <h2> <a th:href="@{/thucung/{id}(id=${thucung.idpet})}">Quay lại</a></h2>
     </form>
-    <h2> <a href="/thucung">Quay lại</a></h2>
+    
 </div>
 </body>
 </html>

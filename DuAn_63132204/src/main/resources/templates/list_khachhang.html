@@ -86,7 +86,7 @@
                 <td th:text="${khachHang.sdtkh}"></td>
                 <td>
                 	<a class="cn" th:href="@{/hoadonkhachhang/{id}(id=${khachHang.idkh})}">Lập Hóa Dơn</a>
-                	<a class="cn" th:href="@{/thucung/add/{id}(id=${khachHang.idkh})}">Thêm thú cưng</a>
+                	<a class="cn" th:href="@{/thucung/{id}(id=${khachHang.idkh})}">Thú cưng</a>
                 </td>
                 <td>
                     <a class="cn" th:href="@{/khachhang/edit/{id}(id=${khachHang.idkh})}">Sửa</a>

@@ -65,12 +65,11 @@
         </tbody>
     </table>
     <!-- chọn nhân viên phụ trách hóa đơn -->
-    <h2>Select Employee ID</h2>
+    <h2>Chọn Nhân viên</h2>
     <form>
-        <label for="nhanvien">Select Employee ID:</label>
+        <label for="nhanvien">Chọn ID nhân viên</label>
         <select id="nhanvien" name="nhanvien">
-            <option value="">-- Select Employee ID --</option>
-            <!-- Iterate through the list of employees and populate the options -->
+            <option value="">--Chọn Nhân viên--</option>
             <option th:each="nhanvien : ${listNhanVien}" 
                     th:value="${nhanvien.idnv}" 
                     th:text="${nhanvien.idnv + ' - ' + nhanvien.hotennv}">
