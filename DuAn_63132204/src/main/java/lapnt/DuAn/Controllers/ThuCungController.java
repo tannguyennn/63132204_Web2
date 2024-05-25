@@ -21,6 +21,7 @@ public class ThuCungController {
     @Autowired
     private KhachHangService khachHangService;
     
+    KhachHang kh = new KhachHang();
     // Hiển thị danh sách thú cưng
     @GetMapping("/thucung")
     public String listThuCung(Model model) {
@@ -37,18 +38,18 @@ public class ThuCungController {
         	if(tc.getKhachHang().getIdkh() == idkh)
         		lsTC.add(tc);
         
-        KhachHang kh = khachHangService.getKhachHangById(idkh);
+        kh = khachHangService.getKhachHangById(idkh);
         model.addAttribute("listThuCung", lsTC);
         model.addAttribute("khachhang", kh);
         return "list_thucung_kh";
     }
 
-    @GetMapping("/thucung/add")
-    public String addThuCungForm(Model model) {
+    @GetMapping("/thucung/add/{id}")
+    public String addThuCungForm(@PathVariable("id") int idkh,Model model) {
         ThuCung thucung = new ThuCung();
         model.addAttribute("thucung", thucung);
         
-        List<KhachHang> kh = khachHangService.getAllKhachHang();
+        kh = khachHangService.getKhachHangById(idkh);
         model.addAttribute("khachhang", kh);
         
         return "add_thucung";
@@ -57,6 +58,7 @@ public class ThuCungController {
     // Form thêm/sửa thú cưng
     @PostMapping("/thucung/save")
     public String saveThuCung(@ModelAttribute("thuCung") ThuCung thuCung) {
+    	thuCung.setKhachHang(kh);
         thuCungService.saveThuCung(thuCung);
         return "redirect:/thucung";
     }

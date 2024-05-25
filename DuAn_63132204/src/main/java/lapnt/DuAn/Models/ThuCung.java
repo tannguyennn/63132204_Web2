@@ -65,6 +65,11 @@ public class ThuCung {
 	public void setKhachHang(KhachHang khachHang) {
 		this.khachHang = khachHang;
 	}
+
+	@Override
+	public String toString() {
+		return idpet + "-" + tenpet + "-" + loai;
+	}
     
     
 }

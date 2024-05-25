@@ -22,6 +22,7 @@ import lapnt.DuAn.Models.HoaDon;
 import lapnt.DuAn.Models.KhachHang;
 import lapnt.DuAn.Models.NhanVien;
 import lapnt.DuAn.Models.SanPham;
+import lapnt.DuAn.Models.ThuCung;
 import lapnt.DuAn.Services.CTHDDichVuService;
 import lapnt.DuAn.Services.CTHDSanPhamService;
 import lapnt.DuAn.Services.DichVuService;
@@ -29,6 +30,7 @@ import lapnt.DuAn.Services.HoaDonService;
 import lapnt.DuAn.Services.KhachHangService;
 import lapnt.DuAn.Services.NhanVienService;
 import lapnt.DuAn.Services.SanPhamService;
+import lapnt.DuAn.Services.ThuCungService;
 
 @Controller
 public class HomeController {
@@ -46,6 +48,8 @@ public class HomeController {
     private CTHDDichVuService cthdDichVuService;
     @Autowired
     private CTHDSanPhamService cthdSanPhamService;
+    @Autowired
+    private ThuCungService thuCungService;
     
 	@GetMapping("/")
 	public String TrangChu() {
@@ -81,27 +85,27 @@ public class HomeController {
 	
 	public List<SanPham> lsSP = new ArrayList<SanPham>();
 	public List<DichVu> lsDV =  new ArrayList<DichVu>();
-	public double tongTienHD=0;
 	public LocalDate ngd = LocalDate.now();
+	KhachHang khachHang = new KhachHang();
+	List<ThuCung> lsTC = new ArrayList<ThuCung>();
 	
-	@GetMapping("/hoadonkhachhang")
-	public String HoaDonKhachHang(Model model) {
-		List<KhachHang> listKhachhang = khachHangService.getAllKhachHang();
+	@GetMapping("/hoadonkhachhang/{id}")
+	public String HoaDonKhachHang(@PathVariable("id") int idkh,Model model) {
+		khachHang = khachHangService.getKhachHangById(idkh);
 		List<NhanVien> listNhanVien = nhanVienService.getAllNhanVien();
-		
-        for (SanPham sp : lsSP) {
-        	tongTienHD = tongTienHD + sp.getGia();
-        }
-        for (DichVu dv: lsDV) {
-        	tongTienHD = tongTienHD + dv.getGia();
-        }
-
+        
+        List<ThuCung> listThuCung = thuCungService.getAllThuCung();
+        for( ThuCung tc: listThuCung)
+        	if(tc.getKhachHang().getIdkh() == idkh)
+        		lsTC.add(tc);
+        if(!lsTC.isEmpty())
+    		model.addAttribute("lsDV",lsDV);
+        model.addAttribute("listThuCung", lsTC);	
         model.addAttribute("ngayGiaoDich", ngd);
-        model.addAttribute("tongTien", tongTienHD);
-		model.addAttribute("listKhachhang", listKhachhang);
+		model.addAttribute("khachhang", khachHang);
         model.addAttribute("listNhanVien", listNhanVien);
 		model.addAttribute("lsSP",lsSP);
-		model.addAttribute("lsDV",lsDV);
+
 		
 		return "hoadon";
 	}
@@ -110,27 +114,50 @@ public class HomeController {
 	public String saveHoaDon(@ModelAttribute("hoaDon") HoaDon hoaDon,
 							@ModelAttribute("cthdDichVu") CTHDDichVu cthdDichVu,
 							@ModelAttribute("cthdSanPham") CTHDSanPham cthdSanPham) {
+		double tongTien=0;
+		for (SanPham sp : lsSP) {
+			double tong = sp.getGia() * cthdSanPham.getSoluong();
+			tongTien = tongTien + tong;
+		}
 		
+		if(!lsTC.isEmpty())
+		{
+			for (DichVu dv : lsDV) {
+				tongTien = tongTien + dv.getGia();
+			}
+		}
+		 
 		Date ngaygd = Date.valueOf(ngd);
 		hoaDon.setNgaygd(ngaygd);
-		hoaDon.setTonghd(tongTienHD);
-		
-		cthdSanPham.setHoaDon(hoaDon);
+		hoaDon.setTonghd(tongTien);
+		hoaDon.setKhachHang(khachHang);
+        hoaDonService.saveHoaDon(hoaDon);
+        
+        cthdSanPham.setHoaDon(hoaDon);
 		for (SanPham sp : lsSP) {
-			double tong = sp.getGia()* cthdSanPham.getSoluong();
+			double tong = sp.getGia() * cthdSanPham.getSoluong();
 			cthdSanPham.setSanPham(sp);
 			cthdSanPham.setTong(tong);
 			cthdSanPhamService.saveCTHDSanPham(cthdSanPham);
 		}
 		
-        hoaDonService.saveHoaDon(hoaDon);
-        cthdDichVuService.saveCTHDDichVu(cthdDichVu);
-        
-        return "redirect:/hoadon";
+		if(!lsTC.isEmpty())
+		{
+			cthdDichVu.setHoaDon(hoaDon);
+			for (DichVu dv : lsDV) {
+				cthdDichVu.setDichVu(dv);
+				cthdDichVu.setTong(dv.getGia());
+				cthdDichVuService.saveCTHDDichVu(cthdDichVu);
+			}
+		}
+		
+		
+		lsDV.clear();
+		lsSP.clear();
+		lsTC.clear();
+        return "redirect:/thongke";
         
     } 
-	
-	
 	
 	@GetMapping("/hoadonSP/{id}")
     public String selectSanPham(@PathVariable("id") int id) {

@@ -6,7 +6,7 @@
 <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="body">
+<div id="body" th:each="kh : ${khachhang}">
   <h2>Thêm Thú cưng</h2>
     <form action="/thucung/save" th:object="${thucung}" method="post" >
         <table>
@@ -17,19 +17,14 @@
             <tr>
                 <td>Loại thú cưng:</td>
                 <td><select th:field="*{loai}">
-                        <option value="chó" >Chó</option>
-                        <option value="mèo">Mèo</option>
+                        <option value="Chó" >Chó</option>
+                        <option value="Mèo">Mèo</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td >Khách hàng :</td>
-                <td>
-	                 <select th:field="*{khachHang.idkh}">
-	                    <option th:each="kh : ${khachhang}" th:value="${kh.idkh}" th:text="${kh}">Khách hàng</option>
-	                </select>
-                </td>
-                
+                <td  th:value="${kh.idkh}" th:text="${kh}">Khách hàng</td> 
             </tr>
              
             <tr>
@@ -40,7 +35,7 @@
                 <td colspan="2"><button type="submit">Lưu</button></td>
             </tr>
         </table>
-         <h2> <a href="/thucung">Quay lại</a></h2>
+         <h2> <a th:href="@{/thucung/{id}(id=${kh.idkh})}">Quay lại</a></h2>
     </form>
    
 </div>

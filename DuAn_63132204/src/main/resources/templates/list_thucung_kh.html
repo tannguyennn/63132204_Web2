@@ -17,7 +17,7 @@
   </ul>
 </div>
 
-<div id="body" >
+<div id="body" th:each="kh : ${khachhang}">
   <h2 id="table-title">Danh sách Thú cưng</h2>
     <table border="1">
         <thead>
@@ -49,7 +49,7 @@
             </tr>
         </tbody>
     </table>
-    
+    <h3><a class="cn" th:href="@{/thucung/add/{id}(id=${kh.idkh})}">Thêm mới thú cưng</a></h3>
 </div>
 <div id="footer">
   <p>&copy; 2024 Cửa hàng Chăm sóc Thú cưng</p>
