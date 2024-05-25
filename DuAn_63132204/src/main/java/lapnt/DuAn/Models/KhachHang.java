@@ -70,5 +70,10 @@ public class KhachHang {
         this.sdtkh = sdtkh;
     }
 
+	@Override
+	public String toString() {
+		return  idkh +"-"+  hotenkh ;
+	}
+
 }
 

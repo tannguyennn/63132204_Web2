@@ -1,5 +1,6 @@
 package lapnt.DuAn.Controllers;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import lapnt.DuAn.Models.CTHDDichVu;
@@ -78,19 +81,55 @@ public class HomeController {
 	
 	public List<SanPham> lsSP = new ArrayList<SanPham>();
 	public List<DichVu> lsDV =  new ArrayList<DichVu>();
+	public double tongTienHD=0;
+	public LocalDate ngd = LocalDate.now();
 	
-	@GetMapping("/hoadonkhachhang/{id}")
-	public String HoaDonKhachHang(@PathVariable("id") int id,Model model) {
-		KhachHang khachhang = khachHangService.getKhachHangById(id);
+	@GetMapping("/hoadonkhachhang")
+	public String HoaDonKhachHang(Model model) {
+		List<KhachHang> listKhachhang = khachHangService.getAllKhachHang();
 		List<NhanVien> listNhanVien = nhanVienService.getAllNhanVien();
 		
-		model.addAttribute("khachhang", khachhang);
+        for (SanPham sp : lsSP) {
+        	tongTienHD = tongTienHD + sp.getGia();
+        }
+        for (DichVu dv: lsDV) {
+        	tongTienHD = tongTienHD + dv.getGia();
+        }
+
+        model.addAttribute("ngayGiaoDich", ngd);
+        model.addAttribute("tongTien", tongTienHD);
+		model.addAttribute("listKhachhang", listKhachhang);
         model.addAttribute("listNhanVien", listNhanVien);
 		model.addAttribute("lsSP",lsSP);
 		model.addAttribute("lsDV",lsDV);
 		
 		return "hoadon";
 	}
+	
+	@PostMapping("/hoadonkhachhang/save")
+	public String saveHoaDon(@ModelAttribute("hoaDon") HoaDon hoaDon,
+							@ModelAttribute("cthdDichVu") CTHDDichVu cthdDichVu,
+							@ModelAttribute("cthdSanPham") CTHDSanPham cthdSanPham) {
+		
+		Date ngaygd = Date.valueOf(ngd);
+		hoaDon.setNgaygd(ngaygd);
+		hoaDon.setTonghd(tongTienHD);
+		
+		cthdSanPham.setHoaDon(hoaDon);
+		for (SanPham sp : lsSP) {
+			double tong = sp.getGia()* cthdSanPham.getSoluong();
+			cthdSanPham.setSanPham(sp);
+			cthdSanPham.setTong(tong);
+			cthdSanPhamService.saveCTHDSanPham(cthdSanPham);
+		}
+		
+        hoaDonService.saveHoaDon(hoaDon);
+        cthdDichVuService.saveCTHDDichVu(cthdDichVu);
+        
+        return "redirect:/hoadon";
+        
+    } 
+	
 	
 	
 	@GetMapping("/hoadonSP/{id}")
@@ -105,6 +144,7 @@ public class HomeController {
     	return "redirect:/dichvu";
     }
 
+	
 	
 	//chi tiết hóa đơn
 	@GetMapping("/cthd/{id}")
@@ -125,5 +165,7 @@ public class HomeController {
         model.addAttribute("cthdSanPhamList", cthdSanPhamList);
     	return "cthd";
     }
+	
+	
 	
 }

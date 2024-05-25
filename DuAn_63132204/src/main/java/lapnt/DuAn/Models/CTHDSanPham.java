@@ -24,6 +24,7 @@ public class CTHDSanPham {
 
     @Column(name = "tong")
     private double tong;
+    
  // Getters and Setters
 	public int getIdcthd() {
 		return idcthd;

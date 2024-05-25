@@ -87,5 +87,10 @@ public class NhanVien {
 		this.sdtnv = sdtnv;
 	}
 
+	@Override
+	public String toString() {
+		return idnv + "-" + hotennv ;
+	}
+
     
 }

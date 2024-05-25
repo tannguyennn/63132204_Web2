@@ -16,7 +16,8 @@
     <li><a href="/thongke">Thống kê</a></li>
   </ul>
 </div>
-<div id="body" th:each="thucung : ${listThuCung }">
+
+<div id="body" >
   <h2 id="table-title">Danh sách Thú cưng</h2>
     <table border="1">
         <thead>
@@ -31,7 +32,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr >
+            <tr th:each="thucung : ${listThuCung}">
                 <td th:text="${thucung.idpet}"></td>
                 <td th:text="${thucung.tenpet}"></td>
                 <td th:text="${thucung.loai}"></td>
@@ -43,9 +44,12 @@
                     <a class="cn" th:href="@{/thucung/delete/{id}(id=${thucung.idpet})}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">Xóa</a>
                 </td>
             </tr>
+            <tr th:if="${#lists.isEmpty(listThuCung)}">
+                <td colspan="7">Không có thú cưng nào trong danh sách</td>
+            </tr>
         </tbody>
     </table>
-    <a class="cn" th:href="@{/thucung/add/{id}(id=${thucung.khachHang.idkh})}">Thêm mới</a>
+    
 </div>
 <div id="footer">
   <p>&copy; 2024 Cửa hàng Chăm sóc Thú cưng</p>

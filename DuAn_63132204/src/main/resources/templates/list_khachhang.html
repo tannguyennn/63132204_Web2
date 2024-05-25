@@ -85,7 +85,6 @@
                 <td th:text="${khachHang.emailkh}"></td>
                 <td th:text="${khachHang.sdtkh}"></td>
                 <td>
-                	<a class="cn" th:href="@{/hoadonkhachhang/{id}(id=${khachHang.idkh})}">Lập Hóa Dơn</a>
                 	<a class="cn" th:href="@{/thucung/{id}(id=${khachHang.idkh})}">Thú cưng</a>
                 </td>
                 <td>
@@ -111,7 +110,7 @@
     </div>
     <h2><a class="cn" href="/khachhang/add">Thêm mới</a></h2>
     <h2><a class="cn" href="/thucung">Danh sách thú cưng</a></h2>
-    
+    <h3><a class="cn" href="/thucung/add">Thêm mới thú cưng</a></h3>
 </div>
 <div id="footer">
   <p>&copy; 2024 Cửa hàng Chăm sóc Thú cưng</p>

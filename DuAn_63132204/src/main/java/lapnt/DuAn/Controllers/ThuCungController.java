@@ -30,26 +30,30 @@ public class ThuCungController {
     }
  // Hiển thị danh sách thú cưng
     @GetMapping("/thucung/{id}")
-    public String listThuCungByID(@PathVariable("id") int id,Model model) {
+    public String listThuCungByID(@PathVariable("id") int idkh,Model model) {
         List<ThuCung> listThuCung = thuCungService.getAllThuCung();
         List<ThuCung> lsTC = new ArrayList<ThuCung>();
         for( ThuCung tc: listThuCung)
-        	if(tc.getKhachHang().getIdkh() == id)
+        	if(tc.getKhachHang().getIdkh() == idkh)
         		lsTC.add(tc);
+        
+        KhachHang kh = khachHangService.getKhachHangById(idkh);
         model.addAttribute("listThuCung", lsTC);
+        model.addAttribute("khachhang", kh);
         return "list_thucung_kh";
     }
 
-    @GetMapping("/thucung/add/{id}")
-    public String addThuCungForm(@PathVariable("id") int id,Model model) {
+    @GetMapping("/thucung/add")
+    public String addThuCungForm(Model model) {
         ThuCung thucung = new ThuCung();
         model.addAttribute("thucung", thucung);
         
-        KhachHang kh = khachHangService.getKhachHangById(id);
+        List<KhachHang> kh = khachHangService.getAllKhachHang();
         model.addAttribute("khachhang", kh);
         
         return "add_thucung";
     }
+    
     // Form thêm/sửa thú cưng
     @PostMapping("/thucung/save")
     public String saveThuCung(@ModelAttribute("thuCung") ThuCung thuCung) {

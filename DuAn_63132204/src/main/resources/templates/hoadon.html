@@ -19,12 +19,30 @@
 </div>
 <div id="body">
 <!-- thông tin khách hàng cần lập hóa đơn -->
+
 <h2 id="table-title">Lập hóa đơn</h2>
-<h2>Chọn Khách Hàng</h2>
- 	<h2 th:each="khachhang : ${khachhang}" >Khách Hàng: </h2>
-     <h2 th:text="${khachhang.idkh + ' - ' + khachhang.hotenkh + ' - ' + khachhang.sdtkh}"></h2>
-    
+
+<form action="/hoadonkhachhang/save" method="post">
+
+	<div th:object="${hoaDon}">
+		<h2 >Khách Hàng: </h2>
+		<select name="khachHang.idkh">
+	         <option th:each="kh : ${listKhachhang}" th:value="${kh.idkh}" th:text="${kh}">Khách hàng</option>
+	    </select>
+		    
+	   <h2 >Nhân viên: </h2>
+		<select name="nhanVien.idnv">
+	         <option th:each="nv : ${listNhanVien}" th:value="${nv.idnv}" th:text="${nv}">Nhân viên</option>
+	    </select> 
+	    
+	    		
+		<h3>Ngày hiện tại: <span th:text="${ngayGiaoDich}"></span></h3>
+		<h3>Tổng hóa đơn: <span th:text="${tongTien}"></span></h3>
+	</div>
+
  <!--  danh sách sản phẩm khách hàng chọn  -->
+ 
+ <div th:object="${cthdSanPham}">
   <h2 id="table-title">Danh sách Sản phẩm</h2>
     <table border="1">
         <thead>
@@ -33,17 +51,22 @@
                 <th>Tên SP</th>
                 <th>Mô tả</th>
                 <th>Giá tiền</th>
+                <th>Số lượng</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="sanpham : ${lsSP}">
-                <td th:text="${sanpham.idsp}">ID</td>
-                <td th:text="${sanpham.tensp}">Name</td>
-                <td th:text="${sanpham.mota}">Description</td>
-                <td th:text="${sanpham.gia}">Price</td>
+                <td th:text="${sanpham.idsp}"></td>
+                <td th:text="${sanpham.tensp}"></td>
+                <td th:text="${sanpham.mota}"></td>
+                <td th:field="*{tong}" th:text="${sanpham.gia}"></td>
+                <td><input th:field="*{soluong}" type="number" name="soLuong" /></td>
             </tr>
         </tbody>
     </table>
+  </div>
+  
+   <div th:object="${cthdDichVu}">
     <!-- danh sách dịch vụ khách hàng chọn -->
     <h2 id="table-title">Danh sách Dịch vụ</h2>
     <table border="1">
@@ -64,20 +87,9 @@
             </tr>
         </tbody>
     </table>
-    <!-- chọn nhân viên phụ trách hóa đơn -->
-    <h2>Chọn Nhân viên</h2>
-    <form>
-        <label for="nhanvien">Chọn ID nhân viên</label>
-        <select id="nhanvien" name="nhanvien">
-            <option value="">--Chọn Nhân viên--</option>
-            <option th:each="nhanvien : ${listNhanVien}" 
-                    th:value="${nhanvien.idnv}" 
-                    th:text="${nhanvien.idnv + ' - ' + nhanvien.hotennv}">
-            </option>
-        </select>   
-        <br><br>
-    </form>
-    
+   </div>
+    <button type="submit">Lưu hóa đơn</button>
+</form>
 </div>
 <div id="footer">
   <p>&copy; 2024 Cửa hàng Chăm sóc Thú cưng</p>
