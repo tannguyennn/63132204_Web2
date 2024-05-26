@@ -113,10 +113,11 @@ public class HomeController {
 	@PostMapping("/hoadonkhachhang/save")
 	public String saveHoaDon(@ModelAttribute("hoaDon") HoaDon hoaDon,
 							@ModelAttribute("cthdDichVu") CTHDDichVu cthdDichVu,
-							@ModelAttribute("cthdSanPham") CTHDSanPham cthdSanPham) {
+							@ModelAttribute("cthdSanPham") CTHDSanPham cthdSanPham,
+							@RequestParam(name = "soLuong") int soLuong) {
 		double tongTien=0;
 		for (SanPham sp : lsSP) {
-			double tong = sp.getGia() * cthdSanPham.getSoluong();
+			double tong = sp.getGia() * soLuong;
 			tongTien = tongTien + tong;
 		}
 		
@@ -135,6 +136,7 @@ public class HomeController {
         
         cthdSanPham.setHoaDon(hoaDon);
 		for (SanPham sp : lsSP) {
+			cthdSanPham.setSoluong(soLuong);
 			double tong = sp.getGia() * cthdSanPham.getSoluong();
 			cthdSanPham.setSanPham(sp);
 			cthdSanPham.setTong(tong);

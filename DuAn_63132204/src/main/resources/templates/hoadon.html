@@ -101,8 +101,9 @@
         </tbody>
         <tr th:if="${#lists.isEmpty(listThuCung)}">
             <td colspan="7">Chưa thú cưng </td>
-           	<td colspan="7" th:each="kh : ${khachhang}" th:href="@{/thucung/add/{id}(id=${kh.idkh})}">
-           		Thêm Thú cưng</td>
+           	<td colspan="7" th:each="kh : ${khachhang}" >
+           		<a th:href="@{/thucung/add/{id}(id=${kh.idkh})}">Thêm Thú cưng</a>
+           	</td>
         </tr> 
     </table>
    </div>

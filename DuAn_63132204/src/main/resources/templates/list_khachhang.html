@@ -25,23 +25,13 @@
 }
 
 .pagination a:hover {
-    background-color: #f1f1f1;
+    background-color: rgb(192, 192, 192);
 }
 
 .pagination a.current {
     background-color: #007bff;
     color: #fff;
     border-color: #007bff;
-}
-
-.pagination a[disabled] {
-    pointer-events: none;
-    color: #ccc;
-    border-color: #ccc;
-}
-
-.pagination a[disabled]:hover {
-    background-color: transparent;
 }
 
 </style>
@@ -100,16 +90,10 @@
     </table>
     <br>
     <div class="pagination">
-        <span th:if="${currentPage > 0}">
-            <a th:href="@{/khachhang(name=${searchName}, page=${currentPage - 1}, size=${size})}">&laquo; Trang trước</a>
-        </span>
         <span th:each="i : ${#numbers.sequence(0, totalPages - 1)}">
             <a th:href="@{/khachhang(name=${searchName}, page=${i}, size=${size})}" 
                th:text="${i + 1}" 
                th:class="${currentPage == i} ? 'current' : ''">1</a>
-        </span>
-        <span th:if="${currentPage < totalPages - 1}">
-            <a th:href="@{/khachhang(name=${searchName}, page=${currentPage + 1}, size=${size})}">Trang sau &raquo;</a>
         </span>
     </div>
     <h2><a class="cn" href="/khachhang/add">Thêm mới</a></h2>
