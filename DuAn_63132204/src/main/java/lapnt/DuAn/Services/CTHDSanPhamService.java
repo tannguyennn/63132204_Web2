@@ -33,7 +33,5 @@ public class CTHDSanPhamService {
     public void deleteCTHDSanPham(int id) {
         cthdSanPhamRepository.deleteById(id);
     }
-//    public List<CTHDSanPham> findByHoaDonId(int idhd) {
-//        return cthdSanPhamRepository.findByHoaDonId(idhd);
-//    }
+
 }

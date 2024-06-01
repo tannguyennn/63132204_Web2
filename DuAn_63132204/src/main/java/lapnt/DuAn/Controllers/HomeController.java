@@ -157,6 +157,7 @@ public class HomeController {
 		lsDV.clear();
 		lsSP.clear();
 		lsTC.clear();
+		
         return "redirect:/thongke";
         
     } 

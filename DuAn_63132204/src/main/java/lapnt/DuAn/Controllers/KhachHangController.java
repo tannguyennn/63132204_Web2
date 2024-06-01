@@ -16,6 +16,7 @@ public class KhachHangController {
     private KhachHangService khachHangService;
 
     // Hiển thị danh sách khách hàng
+    //phân trang và tìm kiếm
     @GetMapping("/khachhang")
     public String listAndSearchKhachHang(@RequestParam(name = "name", required = false, defaultValue = "") String name,
             @RequestParam(name = "page", required = false, defaultValue = "0") int page,
